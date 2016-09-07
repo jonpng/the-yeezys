@@ -31,7 +31,30 @@ public class Person2 {
 	 */
 	private String calc(String input) {
 	  //Person 2 put your implementation here
-	  return null;
+		char[] characters = new char[input.length()];
+		int[] chosen = new int[input.length()];
+		for (int i = 0; i < characters.length; i++) {
+			characters[i] = input.charAt(i);
+			chosen[i] = -1;
+		}
+		StringBuilder output = new StringBuilder();
+
+		int i = 0;
+		while (i < input.length()) {
+			int select = (int)(Math.random() * input.length());
+			boolean pickedBefore = false;
+			for (int j = 0; j < chosen.length; j++) {
+				if (chosen[j] == select) {
+					pickedBefore = true;
+					j = chosen.length;
+				}
+			}
+			if (!pickedBefore) {
+				output.append(characters[select]);
+				i++;
+			}
+		}
+	  return output.toString();
 	}
 	/**
 	 * Return a string rep of this object
