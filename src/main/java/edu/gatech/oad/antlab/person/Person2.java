@@ -51,6 +51,7 @@ public class Person2 {
 			}
 			if (!pickedBefore) {
 				output.append(characters[select]);
+				chosen[i] = select;
 				i++;
 			}
 		}
