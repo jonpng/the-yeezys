@@ -1,4 +1,4 @@
-package edu.gatech.oad.antlab.person;
+package src.main.java.edu.gatech.oad.antlab.person;
 
 /**
  *  A simple class for person 5
@@ -30,8 +30,12 @@ public class Person5 {
 	 * @return the modified string
 	 */
 	private String calc(String input) {
-	  //Person 5 put your implementation here
-	  return null;
+	  StringBuffer rotate = new StringBuffer();
+	  
+	  rotate.append(input.substring(2));
+	  rotate.append(input.substring(0, 2));
+	  
+	  return rotate.toString();
 	}
 	
 	/**
