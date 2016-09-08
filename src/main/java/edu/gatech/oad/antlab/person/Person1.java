@@ -32,14 +32,14 @@ public class Person1 {
 	private String calc(String input) {
 		String output = "";
 
-		for (int i = 2, i < input.length(), i++) {
+		for (int i = 2; i < input.length(); i++) {
 
 			output += input.charAt(i);
 		}
 		output += input.charAt(0);
 		output += input.charAt(1);
 	  	return output;
-		}
+	}
 	
 	/**
 	 * Return a string rep of this object
@@ -52,5 +52,4 @@ public class Person1 {
 	public String toString(String input) {
 	  return name + calc(input);
 	}
-
 }
