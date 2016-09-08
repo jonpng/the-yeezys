@@ -1,2 +1,2 @@
-even still more useless info to delete
-
+Jonathan Duong
+jduong6@gatech.edu

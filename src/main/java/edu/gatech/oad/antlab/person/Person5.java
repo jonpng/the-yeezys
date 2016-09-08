@@ -24,14 +24,18 @@ public class Person5 {
 	 * input and return its characters rotated
 	 * 2 positions.
 	 * given "gtg123b" it should return
-	 * "g123bgt".
+	 * "g123bgt"
 	 *
 	 * @param input the string to be modified
 	 * @return the modified string
 	 */
 	private String calc(String input) {
-	  //Person 5 put your implementation here
-	  return null;
+	  StringBuffer rotate = new StringBuffer();
+	  
+	  rotate.append(input.substring(2));
+	  rotate.append(input.substring(0, 2));
+	  
+	  return rotate.toString();
 	}
 	
 	/**
