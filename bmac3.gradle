@@ -10,12 +10,6 @@ jar {
 	}
 }
 
-repositories {
-	maven {
-		url 'the-yeezys/lib'
-	}
-}
-
 dependencies {
 	compile files('lib/resources.jar')
 }
