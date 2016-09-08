@@ -2,12 +2,11 @@ defaultTasks 'jar'
 
 apply plugin: 'java'
 
-sourceCompatibility = 1.7
-version = '1.0'
+archivesBaseName = 'M2'
 
 jar {
 	manifest {
-		attributes 'Implementation-Title': 'Gradle', 'Implentation-Version': version, 'Main-Class': 'edu.gatech.oad.antlab.pkg1.AntLabMain', 'Class-Path': '../../lib/resources.jar'
+		attributes 'Implementation-Title': 'Gradle', 'Main-Class': 'edu.gatech.oad.antlab.pkg1.AntLabMain', 'Class-Path': '../../lib/resources.jar'
 	}
 }
 
