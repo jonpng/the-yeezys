@@ -1,4 +1,4 @@
-package src.main.java.edu.gatech.oad.antlab.person;
+package edu.gatech.oad.antlab.person;
 
 /**
  *  A simple class for person 5
