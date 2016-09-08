@@ -24,7 +24,7 @@ public class Person5 {
 	 * input and return its characters rotated
 	 * 2 positions.
 	 * given "gtg123b" it should return
-	 * "g123bgt".
+	 * "g123bgt"
 	 *
 	 * @param input the string to be modified
 	 * @return the modified string
