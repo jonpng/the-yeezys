@@ -1,2 +1,0 @@
-Jonathan Duong
-jduong6@gatech.edu
