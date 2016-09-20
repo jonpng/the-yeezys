@@ -66,6 +66,8 @@ public class Login extends Application {
 		GridPane grid = new GridPane();
 		grid.setHgap(10);
 		grid.setVgap(10);
+		grid.setMinHeight(300);
+		grid.setMaxHeight(300);
 		Button logout = new Button("Log Out");
 		grid.setAlignment(Pos.CENTER);
 		grid.add(logout, 0, 0, 10, 3);
