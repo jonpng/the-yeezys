@@ -19,21 +19,50 @@ public class Login extends Application {
 	}
 
 	private void initLayout(Stage stage) {
-		FXMLLoader loader = new FXMLLoader();
 		try {
+			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(this.getClass().getResource("MainScreen.fxml"));
 			layout = loader.load();
 
-			MainScreenController control = loader.getController();
+			MainScreenController control = new MainScreenController();
+			control = loader.getController();
 			control.setMain(this);
 			stage.setTitle("Water Conservation Report");
 			Scene scene = new Scene(layout);
 			stage.setScene(scene);
 			stage.show();
 		} catch (Exception e) {
-			LOGGER.log(Level.SEVERE, "You done goofed.");
+			LOGGER.log(Level.SEVERE, "Error occurred");
 			e.printStackTrace();
 			System.exit(0);
+		}
+	}
+
+	private void initApp(Stage stage) {
+		FXMLLoader loader = new FXMLLoader();
+		try {
+			loader.setLocation(this.getClass().getResource("App.fxml"));
+			layout = loader.load();
+
+			MainScreenController control = new MainScreenController();
+			control = loader.getController();
+			control.setMain(this);
+			stage.setTitle("Water Conservation Report.");
+			Scene scene = new Scene(layout);
+			stage.setScene(scene);
+			stage.show();
+		} catch (Exception e) {
+			LOGGER.log(Level.SEVERE, "Error occurred");
+			e.printStackTrace();
+			System.exit(0);
+		}
+	}
+
+	public void init(int select) {
+		if (select == 0) {
+			initLayout(stage);
+		} else {
+			initApp(stage);
 		}
 	}
 

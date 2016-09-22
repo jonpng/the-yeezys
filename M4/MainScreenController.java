@@ -30,10 +30,14 @@ public class MainScreenController {
     @FXML
     private void handleLogin() {
         if (userField.getCharacters().toString().equals("user") && passField.getCharacters().toString().equals("pass")) {
-            System.out.println("Correct.");
-            pressed = true;
+            screen.init(1);
         } else {
             System.out.println("Incorrect username or password");
         }
+    }
+
+    @FXML
+    private void handleLogout() {
+        screen.init(0);
     }
 }
