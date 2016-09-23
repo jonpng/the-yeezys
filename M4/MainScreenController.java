@@ -5,6 +5,7 @@
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.DialogPane;
 
 public class MainScreenController {
 
@@ -15,6 +16,9 @@ public class MainScreenController {
 
     @FXML
     private PasswordField passField;
+
+    @FXML
+    private DialogPane incorrect;
 
     public boolean pressed = false;
 
@@ -32,7 +36,7 @@ public class MainScreenController {
         if (userField.getCharacters().toString().equals("user") && passField.getCharacters().toString().equals("pass")) {
             screen.init(1);
         } else {
-            System.out.println("Incorrect username or password");
+            incorrect.setVisible(true);
         }
     }
 
