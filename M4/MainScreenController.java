@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.DialogPane;
+import javafx.scene.control.Button;
 
 public class MainScreenController {
 
@@ -19,6 +20,12 @@ public class MainScreenController {
 
     @FXML
     private DialogPane incorrect;
+
+    @FXML
+    private DialogPane loggingIn;
+
+    @FXML
+    private Button cancel;
 
     public boolean pressed = false;
 
@@ -34,6 +41,8 @@ public class MainScreenController {
     @FXML
     private void handleLogin() {
         if (userField.getCharacters().toString().equals("user") && passField.getCharacters().toString().equals("pass")) {
+            loggingIn.setVisible(true);
+            cancel.setVisible(true);
             screen.init(1);
         } else {
             incorrect.setVisible(true);
@@ -41,7 +50,8 @@ public class MainScreenController {
     }
 
     @FXML
-    private void handleLogout() {
+    private boolean handleLogout() {
         screen.init(0);
+        return true;
     }
 }
