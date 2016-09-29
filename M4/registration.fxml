@@ -7,7 +7,8 @@
 <?import javafx.scene.text.Font?>
 
 
-<Pane fx:id="registration" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="registration" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="MainScreenController">
    <children>
       <Label layoutX="204.0" layoutY="43.0" text="Registration">
          <font>

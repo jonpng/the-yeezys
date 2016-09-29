@@ -50,14 +50,12 @@ public class MainScreenController {
     }
 
     @FXML
-    private boolean handleLogout() {
+    private void handleLogout() {
         screen.init(0);
-        return true;
     }
 
     @FXML
-    private boolean handleSignUp() {
+    private void handleSignUp() {
         screen.init(2);
-        return true;
     }
 }
