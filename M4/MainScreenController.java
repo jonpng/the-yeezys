@@ -54,4 +54,10 @@ public class MainScreenController {
         screen.init(0);
         return true;
     }
+
+    @FXML
+    private boolean handleSignUp() {
+        screen.init(2);
+        return true;
+    }
 }

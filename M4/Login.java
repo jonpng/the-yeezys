@@ -59,11 +59,33 @@ public class Login extends Application {
 		}
 	}
 
+	private void initReg(Stage stage) {
+		FXMLLoader loader = new FXMLLoader();
+		try {
+			loader.setLocation(this.getClass().getResource("registration.fxml"));
+			layout = loader.load();
+
+			MainScreenController control = new MainScreenController();
+			control = loader.getController();
+			control.setMain(this);
+			stage.setTitle("Water Conservation Report");
+			Scene scene = new Scene(layout);
+			stage.setScene(scene);
+			stage.show();
+		} catch (Exception e) {
+			LOGGER.log(Level.SEVERE, "Error occurred");
+			e.printStackTrace();
+			System.exit(0);
+		}
+	}
+
 	public void init(int select) {
 		if (select == 0) {
 			initLayout(stage);
-		} else {
+		} else if (select == 1) {
 			initApp(stage);
+		} else {
+			initReg(stage);
 		}
 	}
 
