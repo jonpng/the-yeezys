@@ -32,7 +32,12 @@ public class RegistrationScreenController {
     @FXML
     private void handleRegister() {
         String username = userReg.getCharacters().toString();
-
+        String name = nameReg.getCharacters().toString();
+        String password = passReg.getCharacters().toString();
+        if (username.equals("") || password.equals("") || name.equals("")) {
+            regError.setVisible(true);
+            return;
+        }
         ArrayList<User> users = screen.getUsers();
         for (int i = 0; i < users.size(); i++) {
             if (users.get(i).getUsername().equals(username)) {
@@ -40,8 +45,6 @@ public class RegistrationScreenController {
                 return;
             }
         }
-        String name = nameReg.getCharacters().toString();
-        String password = passReg.getCharacters().toString();
         User user = new User(name, username, password);
         screen.addUser(user);
         screen.init(0);
