@@ -45,13 +45,13 @@ public class MainFXApplication extends Application {
 	private void initApp(Stage stage) {
 		FXMLLoader loader = new FXMLLoader();
 		try {
-			loader.setLocation(this.getClass().getResource("../view/App.fxml"));
+			loader.setLocation(this.getClass().getResource("../view/MainScreen.fxml"));
 			layout = loader.load();
 
 			MainScreenController control;
 			control = loader.getController();
 			control.setMain(this);
-			stage.setTitle("Water Conservation Report.");
+			stage.setTitle("Water Conservation Report");
 			Scene scene = new Scene(layout);
 			stage.setScene(scene);
 			stage.show();
