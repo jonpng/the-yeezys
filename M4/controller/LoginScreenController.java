@@ -38,7 +38,9 @@ public class LoginScreenController {
 
     @FXML
     private void handleLogin() {
-        if (userField.getCharacters().toString().equals("user") && passField.getCharacters().toString().equals("pass")) {
+        String username = userField.getCharacters().toString();
+        String password = passField.getCharacters().toString();
+        if (screen.login(username, password)) {
             screen.init(1);
         } else {
             incorrect.setVisible(true);

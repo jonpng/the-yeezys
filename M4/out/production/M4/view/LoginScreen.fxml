@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginScreenController">
+    <children>
+        <VBox alignment="BOTTOM_CENTER" layoutX="100.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" spacing="20.0">
+            <children>
+                <Label alignment="TOP_CENTER" contentDisplay="TOP" text="Water Conservation Report">
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="userField" promptText="Username">
+                    <VBox.margin>
+                        <Insets bottom="-10.0" />
+                    </VBox.margin>
+                </TextField>
+                <PasswordField fx:id="passField" promptText="Password">
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </PasswordField>
+                <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                    <children>
+                        <Button fx:id="LoginBtn" defaultButton="true" mnemonicParsing="false" onAction="#handleLogin" text="Login" />
+                        <Button fx:id="SignUpBtn" mnemonicParsing="false" onAction="#handleSignUp" text="Sign Up" />
+                    </children>
+                </HBox>
+            <Label fx:id="incorrect" text="Incorrect Username/Password" visible="false">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Label>
+            </children>
+        </VBox>
+    </children>
+</Pane>
