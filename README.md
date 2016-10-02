@@ -4,7 +4,7 @@ Do not import the files. You can get access to them just by opening the file loc
 Then build and run using:
 ```
 Build -> Make Project
-Run -> Run 'Login'
+Run -> Run 'fxapp.MainFXApplication'
 ```
 
 
