@@ -25,6 +25,15 @@ public class LoginScreenController {
     @FXML
     private Button cancel;
 
+    @FXML
+    private Label name;
+
+    @FXML
+    private Label email;
+
+    @FXML
+    private Label address;
+
     public boolean pressed = false;
 
     public void setMain(MainFXApplication screen) {
