@@ -2,12 +2,13 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<Pane fx:id="registration" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainScreenController">
+<Pane fx:id="registration" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegistrationScreenController">
    <children>
-      <VBox alignment="CENTER" layoutX="100.0" prefHeight="200.0" prefWidth="300.0" spacing="30.0">
+      <VBox alignment="CENTER" layoutX="100.0" layoutY="3.0" prefHeight="200.0" prefWidth="300.0" spacing="30.0">
          <children>
             <Label text="Registration">
                <font>
@@ -18,11 +19,12 @@
             <TextField fx:id="userReg" promptText="Username" />
             <TextField fx:id="passReg" promptText="Password" />
             <ComboBox fx:id="acctType" prefWidth="150.0" promptText="Account Type" visibleRowCount="5" />
-            <Button fx:id="subReg" mnemonicParsing="false" text="Submit">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Button>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+               <children>
+                  <Button fx:id="subReg" mnemonicParsing="false" text="Submit" />
+                  <Button mnemonicParsing="false" text="Cancel" />
+               </children>
+            </HBox>
             <Label fx:id="regError" text="Username Unavailable" visible="false">
                <VBox.margin>
                   <Insets top="-20.0" />

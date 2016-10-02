@@ -1,6 +1,7 @@
 package fxapp;
 
-import controller.MainScreenController;
+import controller.LoginScreenController;
+import controller.RegistrationScreenController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -28,7 +29,7 @@ public class MainFXApplication extends Application {
 			loader.setLocation(this.getClass().getResource("../view/LoginScreen.fxml"));
 			layout = loader.load();
 
-			MainScreenController control;
+			LoginScreenController control;
 			control = loader.getController();
 			control.setMain(this);
 			stage.setTitle("Water Conservation Report");
@@ -48,7 +49,7 @@ public class MainFXApplication extends Application {
 			loader.setLocation(this.getClass().getResource("../view/MainScreen.fxml"));
 			layout = loader.load();
 
-			MainScreenController control;
+			LoginScreenController control;
 			control = loader.getController();
 			control.setMain(this);
 			stage.setTitle("Water Conservation Report");
@@ -68,7 +69,7 @@ public class MainFXApplication extends Application {
 			loader.setLocation(this.getClass().getResource("../view/RegistrationScreen.fxml"));
 			layout = loader.load();
 
-			MainScreenController control;
+			RegistrationScreenController control;
 			control = loader.getController();
 			control.setMain(this);
 			stage.setTitle("Water Conservation Report");

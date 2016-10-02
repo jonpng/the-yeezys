@@ -9,7 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-public class MainScreenController {
+public class LoginScreenController {
 
     private MainFXApplication screen;
 
