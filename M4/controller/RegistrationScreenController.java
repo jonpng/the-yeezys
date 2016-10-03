@@ -54,4 +54,9 @@ public class RegistrationScreenController {
     private void handleCancel() {
         screen.init(0);
     }
+
+    @FXML
+    private void handleClose() {
+        System.exit(0);
+    }
 }

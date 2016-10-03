@@ -63,4 +63,9 @@ public class MainScreenController {
     private void handleEdit() {
         screen.init(3);
     }
+
+    @FXML
+    private void handleClose() {
+        System.exit(0);
+    }
 }

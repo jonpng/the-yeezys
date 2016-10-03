@@ -64,12 +64,6 @@ public class LoginScreenController {
         screen.init(2);
     }
 
-
-    @FXML
-    public StringProperty nameProperty() {
-        return nameProperty;
-    }
-
     @FXML
     public User getUser() {
         return user;
