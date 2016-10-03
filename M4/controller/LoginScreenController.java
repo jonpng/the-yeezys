@@ -3,11 +3,14 @@ package controller; /**
  */
 
 import fxapp.MainFXApplication;
+import model.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.beans.property.StringProperty;
+import javafx.beans.property.SimpleStringProperty;
 
 public class LoginScreenController {
 
@@ -23,9 +26,6 @@ public class LoginScreenController {
     private Label incorrect;
 
     @FXML
-    private Button cancel;
-
-    @FXML
     private Label name;
 
     @FXML
@@ -34,7 +34,9 @@ public class LoginScreenController {
     @FXML
     private Label address;
 
-    public boolean pressed = false;
+    private User user;
+
+    private StringProperty nameProperty;
 
     public void setMain(MainFXApplication screen) {
         this.screen = screen;
@@ -49,7 +51,8 @@ public class LoginScreenController {
     private void handleLogin() {
         String username = userField.getCharacters().toString();
         String password = passField.getCharacters().toString();
-        if (screen.login(username, password)) {
+        user = screen.login(username, password);
+        if (user != null) {
             screen.init(1);
         } else {
             incorrect.setVisible(true);
@@ -57,12 +60,18 @@ public class LoginScreenController {
     }
 
     @FXML
-    private void handleLogout() {
-        screen.init(0);
+    private void handleSignUp() {
+        screen.init(2);
+    }
+
+
+    @FXML
+    public StringProperty nameProperty() {
+        return nameProperty;
     }
 
     @FXML
-    private void handleSignUp() {
-        screen.init(2);
+    public User getUser() {
+        return user;
     }
 }

@@ -2,6 +2,8 @@ package fxapp;
 
 import controller.LoginScreenController;
 import controller.RegistrationScreenController;
+import controller.MainScreenController;
+import controller.EditScreenController;
 import model.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +21,10 @@ public class MainFXApplication extends Application {
 	private Stage stage;
 	private Pane layout;
 	private ArrayList<User> users = new ArrayList<User>();
+	private LoginScreenController loginControl;
+	private MainScreenController mainControl;
+	private RegistrationScreenController regControl;
+	private EditScreenController editControl;
 
 	@Override
 	public void start(Stage stage) {
@@ -33,8 +39,8 @@ public class MainFXApplication extends Application {
 			layout = loader.load();
 
 			LoginScreenController control;
-			control = loader.getController();
-			control.setMain(this);
+			loginControl = loader.getController();
+			loginControl.setMain(this);
 			stage.setTitle("Water Conservation Report");
 			Scene scene = new Scene(layout);
 			stage.setScene(scene);
@@ -52,9 +58,11 @@ public class MainFXApplication extends Application {
 			loader.setLocation(this.getClass().getResource("../view/MainScreen.fxml"));
 			layout = loader.load();
 
-			LoginScreenController control;
-			control = loader.getController();
-			control.setMain(this);
+			MainScreenController control;
+			mainControl = loader.getController();
+			mainControl.setMain(this);
+			mainControl.loadUser(loginControl.getUser());
+			mainControl.loadProfile();
 			stage.setTitle("Water Conservation Report");
 			Scene scene = new Scene(layout);
 			stage.setScene(scene);
@@ -73,8 +81,28 @@ public class MainFXApplication extends Application {
 			layout = loader.load();
 
 			RegistrationScreenController control;
-			control = loader.getController();
-			control.setMain(this);
+			regControl = loader.getController();
+			regControl.setMain(this);
+			stage.setTitle("Water Conservation Report");
+			Scene scene = new Scene(layout);
+			stage.setScene(scene);
+			stage.show();
+		} catch (Exception e) {
+			LOGGER.log(Level.SEVERE, "Error occurred");
+			e.printStackTrace();
+			System.exit(0);
+		}
+	}
+
+	private void initEdit(Stage stage) {
+		FXMLLoader loader = new FXMLLoader();
+		try {
+			loader.setLocation(this.getClass().getResource("../view/EditScreen.fxml"));
+			layout = loader.load();
+
+			editControl = loader.getController();
+			editControl.setMain(this);
+			editControl.loadUser(mainControl.getUser());
 			stage.setTitle("Water Conservation Report");
 			Scene scene = new Scene(layout);
 			stage.setScene(scene);
@@ -91,8 +119,10 @@ public class MainFXApplication extends Application {
 			initLayout(stage);
 		} else if (select == 1) {
 			initApp(stage);
-		} else {
+		} else if (select == 2) {
 			initReg(stage);
+		} else {
+			initEdit(stage);
 		}
 	}
 
@@ -104,13 +134,13 @@ public class MainFXApplication extends Application {
 		return users;
 	}
 
-	public boolean login(String username, String password) {
+	public User login(String username, String password) {
 		for (int i = 0; i < users.size(); i++) {
 			if (users.get(i).verify(username, password)) {
-				return true;
+				return users.get(i);
 			}
 		}
-		return false;
+		return null;
 	}
 
 	public static void main(String[]args) {
