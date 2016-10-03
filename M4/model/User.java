@@ -12,13 +12,15 @@ public class User {
     private String password;
     private String email;
     private String address;
+    private String accountType;
 
-    public User(String name, String username, String password) {
+    public User(String name, String username, String password, String AccountType) {
         this.name = name;
         this.username = username;
         this.password = password;
         email = "";
         address = "";
+        accountType = AccountType;
     }
 
     public void setUsername(String username) {
@@ -59,6 +61,10 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getAccountType() {
+        return accountType;
     }
 
     public boolean verify(String username, String password) {

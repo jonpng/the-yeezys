@@ -6,6 +6,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 import model.User;
 import java.util.ArrayList;
+import javafx.scene.control.ComboBox;
 
 /**
  * Created by Steve on 10/2/2016.
@@ -25,6 +26,9 @@ public class RegistrationScreenController {
     @FXML
     private Label regError;
 
+    @FXML
+    private ComboBox acctType;
+
     public void setMain(MainFXApplication screen) {
         this.screen = screen;
     }
@@ -34,7 +38,8 @@ public class RegistrationScreenController {
         String username = userReg.getCharacters().toString();
         String name = nameReg.getCharacters().toString();
         String password = passReg.getCharacters().toString();
-        if (username.equals("") || password.equals("") || name.equals("")) {
+        String account = (String)acctType.getValue();
+        if (username.equals("") || password.equals("") || name.equals("") || account == null) {
             regError.setVisible(true);
             return;
         }
@@ -45,7 +50,8 @@ public class RegistrationScreenController {
                 return;
             }
         }
-        User user = new User(name, username, password);
+
+        User user = new User(name, username, password, account);
         screen.addUser(user);
         screen.init(0);
     }

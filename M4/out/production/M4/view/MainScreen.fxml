@@ -24,5 +24,10 @@
          </font>
       </Label>
       <Button fx:id="editProfile" layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#handleEdit" text="Edit Profile" />
+      <Label fx:id="type" alignment="CENTER" layoutX="15.0" layoutY="153.0" prefHeight="27.0" prefWidth="561.0" text="Acct. Type" visible="false">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
