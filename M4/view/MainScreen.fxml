@@ -29,7 +29,7 @@
             <Font size="21.0" />
          </font>
       </Label>
-      <Button fx:id="addBtn" layoutX="181.0" layoutY="360.0" mnemonicParsing="false" text="Add Report" onAction="#handleAdd" />
+      <Button fx:id="viewBtn" layoutX="181.0" layoutY="360.0" mnemonicParsing="false" text="View Reports" onAction="#handleView" />
       <Button fx:id="verifyBtn" layoutX="345.0" layoutY="360.0" mnemonicParsing="false" text="Verify Report" onAction="#handleVerify" />
    </children>
 </Pane>

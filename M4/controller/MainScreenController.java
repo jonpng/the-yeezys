@@ -76,7 +76,7 @@ public class MainScreenController {
     }
 
     @FXML
-    private void handleAdd() {
+    private void handleView() {
         screen.init(4);
     }
 
