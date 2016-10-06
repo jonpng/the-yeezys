@@ -5,13 +5,12 @@ package controller;
  */
 
 import fxapp.MainFXApplication;
-import model.User;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import model.User;
 
-public class EditScreenController {
+public class EditProfileScreenController {
 
     private MainFXApplication screen;
     private User user;

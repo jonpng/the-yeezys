@@ -1,19 +1,19 @@
 package fxapp;
 
+import controller.EditProfileScreenController;
 import controller.LoginScreenController;
-import controller.RegistrationScreenController;
 import controller.MainScreenController;
-import controller.EditScreenController;
-import model.User;
+import controller.RegistrationScreenController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import model.User;
 
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.ArrayList;
 
 public class MainFXApplication extends Application {
 
@@ -24,7 +24,7 @@ public class MainFXApplication extends Application {
 	private LoginScreenController loginControl;
 	private MainScreenController mainControl;
 	private RegistrationScreenController regControl;
-	private EditScreenController editControl;
+	private EditProfileScreenController editControl;
 
 	@Override
 	public void start(Stage stage) {
@@ -97,7 +97,7 @@ public class MainFXApplication extends Application {
 	private void initEdit(Stage stage) {
 		FXMLLoader loader = new FXMLLoader();
 		try {
-			loader.setLocation(this.getClass().getResource("../view/EditScreen.fxml"));
+			loader.setLocation(this.getClass().getResource("../view/EditProfileScreen.fxml"));
 			layout = loader.load();
 
 			editControl = loader.getController();
