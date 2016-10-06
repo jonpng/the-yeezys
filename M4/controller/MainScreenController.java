@@ -74,4 +74,14 @@ public class MainScreenController {
     private void handleClose() {
         System.exit(0);
     }
+
+    @FXML
+    private void handleAdd() {
+        screen.init(4);
+    }
+
+    @FXML
+    private void handleVerify() {
+        screen.init(5);
+    }
 }
