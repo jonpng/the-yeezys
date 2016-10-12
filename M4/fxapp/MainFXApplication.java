@@ -5,6 +5,7 @@ import controller.LoginScreenController;
 import controller.MainScreenController;
 import controller.RegistrationScreenController;
 import controller.ReportListController;
+import controller.AddReportScreenController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,10 +13,12 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import model.User;
 import model.Report;
+import model.ReportList;
 
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.ObservableListBase;
 
 public class MainFXApplication extends Application {
 
@@ -23,12 +26,13 @@ public class MainFXApplication extends Application {
 	private Stage stage;
 	private Pane layout;
 	private ArrayList<User> users = new ArrayList<User>();
-	private ArrayList<Report> reports = new ArrayList<Report>();
+	private ReportList<Report> reports = new ReportList<Report>();
 	private LoginScreenController loginControl;
 	private MainScreenController mainControl;
 	private RegistrationScreenController regControl;
 	private EditProfileScreenController editControl;
 	private ReportListController reportControl;
+	private AddReportScreenController addReportControl;
 
 	@Override
 	public void start(Stage stage) {
@@ -127,7 +131,28 @@ public class MainFXApplication extends Application {
 			reportControl = loader.getController();
 			reportControl.setMain(this);
 
-			reportControl.loadReports(reports);
+			reportControl.loadReports();
+			reportControl.loadUser(loginControl.getUser());
+			stage.setTitle("Water Conservation Report");
+			stage.setScene(new Scene(layout));
+			stage.show();
+		} catch (Exception e) {
+			LOGGER.log(Level.SEVERE, "Error occurred");
+			e.printStackTrace();
+			System.exit(0);
+		}
+	}
+
+	private void initAdd(Stage stage) {
+		FXMLLoader loader = new FXMLLoader();
+		try {
+			loader.setLocation(this.getClass().getResource("../view/AddReportScreen.fxml"));
+			layout = loader.load();
+
+			addReportControl = loader.getController();
+			addReportControl.setMain(this);
+
+			addReportControl.loadUser(loginControl.getUser());
 			stage.setTitle("Water Conservation Report");
 			stage.setScene(new Scene(layout));
 			stage.show();
@@ -149,6 +174,8 @@ public class MainFXApplication extends Application {
 			initEdit(stage);
 		} else if (select == 4) {
 			initReportList(stage);
+		} else if (select == 5) {
+			initAdd(stage);
 		}
 	}
 
@@ -158,6 +185,14 @@ public class MainFXApplication extends Application {
 
 	public ArrayList<User> getUsers() {
 		return users;
+	}
+
+	public void addReport(Report r) {
+		reports.add(r);
+	}
+
+	public ReportList<Report> getReports() {
+		return reports;
 	}
 
 	public User login(String username, String password) {

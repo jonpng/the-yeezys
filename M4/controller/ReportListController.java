@@ -10,6 +10,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 
 import model.Report;
+import model.User;
+import model.ReportList;
 import fxapp.MainFXApplication;
 import java.util.ArrayList;
 import javafx.collections.ObservableList;
@@ -18,10 +20,11 @@ import javafx.collections.ObservableList;
 public class ReportListController {
 
     private MainFXApplication screen;
-    private ArrayList<Report> reports;
+    private ReportList<Report> reports;
+    private User user;
 
     @FXML
-    private ListView<Report> reportListView;
+    private ListView<Report> reportList;
 
     @FXML
     private Label noReports;
@@ -39,23 +42,26 @@ public class ReportListController {
         this.screen = screen;
     }
 
-    public void loadReports(ArrayList<Report> reports) {
-        this.reports = reports;
-        if (reports.size() == 0) {
-            return;
+    public void loadUser(User user) {
+        this.user = user;
+    }
+
+    public void loadReports() {
+        reports = screen.getReports();
+        if (reports.size() != 0) {
+            noReports.setVisible(false);
         }
-        noReports.setVisible(false);
-        reportListView.setItems((ObservableList<Report>)reports);
+        reportList.setItems(reports);
     }
 
     @FXML
     private void handleViewRep() {
-        screen.init(5);
+        screen.init(6);
     }
 
     @FXML
     private void handleAddRep() {
-        screen.init(6);
+        screen.init(5);
     }
 
     @FXML
