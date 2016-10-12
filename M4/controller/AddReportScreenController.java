@@ -59,6 +59,7 @@ public class AddReportScreenController {
             lat = Double.parseDouble(latitude);
             if (lat > 180) {
                 coorErr.setVisible(true);
+                return;
             }
         } catch (Exception e) {
             coorErr.setVisible(true);
@@ -71,6 +72,7 @@ public class AddReportScreenController {
             longi = Double.parseDouble(longitude);
             if (longi > 180) {
                 coorErr.setVisible(true);
+                return;
             }
         } catch (Exception e) {
             coorErr.setVisible(true);
@@ -84,7 +86,7 @@ public class AddReportScreenController {
         }
 
         Report report = new Report(lat, longi, name, null, user, nsBtn.getText(), ewBtn.getText());
-        report.setNumber(Report.getReports() + 1);
+        report.setNumber(Report.getReports());
 
         ReportList<Report> reports = screen.getReports();
         reports.add(report);

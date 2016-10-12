@@ -56,6 +56,9 @@ public class ReportListController {
 
     @FXML
     private void handleViewRep() {
+        if (reportList.getItems().size() == 0) {
+            return;
+        }
         screen.init(6);
     }
 
@@ -72,5 +75,9 @@ public class ReportListController {
     @FXML
     private void handleBack() {
         screen.init(1);
+    }
+
+    public Report getSelection() {
+        return reportList.getSelectionModel().getSelectedItem();
     }
 }

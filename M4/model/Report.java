@@ -30,6 +30,7 @@ public class Report {
         status = false;
         this.NSDir = NSDir;
         this.EWDir = EWDir;
+        reports++;
     }
 
     public int getNumber() {

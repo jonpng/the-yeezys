@@ -6,6 +6,7 @@ import controller.MainScreenController;
 import controller.RegistrationScreenController;
 import controller.ReportListController;
 import controller.AddReportScreenController;
+import controller.ReportController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -33,6 +34,7 @@ public class MainFXApplication extends Application {
 	private EditProfileScreenController editControl;
 	private ReportListController reportControl;
 	private AddReportScreenController addReportControl;
+	private ReportController repControl;
 
 	@Override
 	public void start(Stage stage) {
@@ -163,6 +165,26 @@ public class MainFXApplication extends Application {
 		}
 	}
 
+	private void initRep(Stage stage) {
+		FXMLLoader loader = new FXMLLoader();
+		try {
+			loader.setLocation(this.getClass().getResource("../view/ReportScreen.fxml"));
+			layout = loader.load();
+
+			repControl = loader.getController();
+			repControl.setMain(this);
+
+			repControl.loadReport(reportControl.getSelection());
+			stage.setTitle("Water Conservation Report");
+			stage.setScene(new Scene(layout));
+			stage.show();
+		} catch (Exception e) {
+			LOGGER.log(Level.SEVERE, "Error occurred");
+			e.printStackTrace();
+			System.exit(0);
+		}
+	}
+
 	public void init(int select) {
 		if (select == 0) {
 			initLayout(stage);
@@ -176,6 +198,8 @@ public class MainFXApplication extends Application {
 			initReportList(stage);
 		} else if (select == 5) {
 			initAdd(stage);
+		} else if (select == 6) {
+			initRep(stage);
 		}
 	}
 
