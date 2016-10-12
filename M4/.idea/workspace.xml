@@ -22,10 +22,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainFXApplication.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainFXApplication.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fxapp/MainFXApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.50993377">
+            <state vertical-scroll-proportion="-31.25926">
               <caret line="136" column="46" selection-start-line="136" selection-start-column="46" selection-end-line="136" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -60,19 +60,23 @@
         <entry file="file://$PROJECT_DIR$/model/Report.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="87" column="20" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="20" />
+              <caret line="99" column="21" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#918#919#0" expanded="true" />
-                <element signature="e#947#948#0" expanded="true" />
-                <element signature="e#981#982#0" expanded="true" />
-                <element signature="e#1017#1018#0" expanded="true" />
-                <element signature="e#1045#1046#0" expanded="true" />
-                <element signature="e#1079#1080#0" expanded="true" />
-                <element signature="e#1861#1862#0" expanded="true" />
-                <element signature="e#1889#1890#0" expanded="true" />
-                <element signature="e#1921#1922#0" expanded="true" />
-                <element signature="e#1948#1949#0" expanded="true" />
+                <element signature="e#1054#1055#0" expanded="true" />
+                <element signature="e#1083#1084#0" expanded="true" />
+                <element signature="e#1117#1118#0" expanded="true" />
+                <element signature="e#1153#1154#0" expanded="true" />
+                <element signature="e#1181#1182#0" expanded="true" />
+                <element signature="e#1215#1216#0" expanded="true" />
+                <element signature="e#1249#1250#0" expanded="true" />
+                <element signature="e#1285#1286#0" expanded="true" />
+                <element signature="e#1313#1314#0" expanded="true" />
+                <element signature="e#1347#1348#0" expanded="true" />
+                <element signature="e#2116#2117#0" expanded="true" />
+                <element signature="e#2144#2145#0" expanded="true" />
+                <element signature="e#2176#2177#0" expanded="true" />
+                <element signature="e#2204#2205#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,26 +85,26 @@
       <file leaf-file-name="AddReportScreen.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/AddReportScreen.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.222222">
-              <caret line="22" column="110" selection-start-line="22" selection-start-column="110" selection-end-line="22" selection-end-column="110" />
+            <state vertical-scroll-proportion="-14.444445">
+              <caret line="26" column="112" selection-start-line="26" selection-start-column="112" selection-end-line="26" selection-end-column="112" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddReportScreenController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AddReportScreenController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controller/AddReportScreenController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="76" column="28" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="28" />
+            <state vertical-scroll-proportion="-0.55">
+              <caret line="72" column="41" selection-start-line="72" selection-start-column="41" selection-end-line="72" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#692#693#0" expanded="true" />
-                <element signature="e#728#729#0" expanded="true" />
-                <element signature="e#767#768#0" expanded="true" />
-                <element signature="e#799#800#0" expanded="true" />
-                <element signature="e#1782#1783#0" expanded="true" />
-                <element signature="e#1812#1813#0" expanded="true" />
+                <element signature="e#802#803#0" expanded="true" />
+                <element signature="e#838#839#0" expanded="true" />
+                <element signature="e#877#878#0" expanded="true" />
+                <element signature="e#909#910#0" expanded="true" />
+                <element signature="e#2098#2099#0" expanded="true" />
+                <element signature="e#2128#2129#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -187,12 +191,12 @@
         <option value="$PROJECT_DIR$/view/MainScreen.fxml" />
         <option value="$PROJECT_DIR$/controller/MainScreenController.java" />
         <option value="$PROJECT_DIR$/view/ReportListScreen.fxml" />
-        <option value="$PROJECT_DIR$/view/AddReportScreen.fxml" />
-        <option value="$PROJECT_DIR$/model/Report.java" />
         <option value="$PROJECT_DIR$/model/ReportList.java" />
-        <option value="$PROJECT_DIR$/controller/AddReportScreenController.java" />
         <option value="$PROJECT_DIR$/fxapp/MainFXApplication.java" />
         <option value="$PROJECT_DIR$/controller/ReportListController.java" />
+        <option value="$PROJECT_DIR$/view/AddReportScreen.fxml" />
+        <option value="$PROJECT_DIR$/model/Report.java" />
+        <option value="$PROJECT_DIR$/controller/AddReportScreenController.java" />
       </list>
     </option>
   </component>
@@ -1113,30 +1117,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/AddReportScreen.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.222222">
-          <caret line="22" column="110" selection-start-line="22" selection-start-column="110" selection-end-line="22" selection-end-column="110" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/AddReportScreenController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="76" column="28" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#692#693#0" expanded="true" />
-            <element signature="e#728#729#0" expanded="true" />
-            <element signature="e#767#768#0" expanded="true" />
-            <element signature="e#799#800#0" expanded="true" />
-            <element signature="e#1782#1783#0" expanded="true" />
-            <element signature="e#1812#1813#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/ReportList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.84375">
@@ -1151,36 +1131,6 @@
             <element signature="e#420#421#0" expanded="true" />
             <element signature="e#454#455#0" expanded="true" />
             <element signature="e#491#492#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/Report.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="87" column="20" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#918#919#0" expanded="true" />
-            <element signature="e#947#948#0" expanded="true" />
-            <element signature="e#981#982#0" expanded="true" />
-            <element signature="e#1017#1018#0" expanded="true" />
-            <element signature="e#1045#1046#0" expanded="true" />
-            <element signature="e#1079#1080#0" expanded="true" />
-            <element signature="e#1861#1862#0" expanded="true" />
-            <element signature="e#1889#1890#0" expanded="true" />
-            <element signature="e#1921#1922#0" expanded="true" />
-            <element signature="e#1948#1949#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/RegistrationScreenController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="23" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1221,9 +1171,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/view/AddReportScreen.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.444445">
+          <caret line="26" column="112" selection-start-line="26" selection-start-column="112" selection-end-line="26" selection-end-column="112" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Report.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="99" column="21" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1054#1055#0" expanded="true" />
+            <element signature="e#1083#1084#0" expanded="true" />
+            <element signature="e#1117#1118#0" expanded="true" />
+            <element signature="e#1153#1154#0" expanded="true" />
+            <element signature="e#1181#1182#0" expanded="true" />
+            <element signature="e#1215#1216#0" expanded="true" />
+            <element signature="e#1249#1250#0" expanded="true" />
+            <element signature="e#1285#1286#0" expanded="true" />
+            <element signature="e#1313#1314#0" expanded="true" />
+            <element signature="e#1347#1348#0" expanded="true" />
+            <element signature="e#2116#2117#0" expanded="true" />
+            <element signature="e#2144#2145#0" expanded="true" />
+            <element signature="e#2176#2177#0" expanded="true" />
+            <element signature="e#2204#2205#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/RegistrationScreenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="23" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fxapp/MainFXApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.50993377">
+        <state vertical-scroll-proportion="-31.25926">
           <caret line="136" column="46" selection-start-line="136" selection-start-column="46" selection-end-line="136" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1237,6 +1229,22 @@
             <element signature="e#5281#5282#0" expanded="true" />
             <element signature="e#5324#5325#0" expanded="true" />
             <element signature="e#5345#5346#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/AddReportScreenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.55">
+          <caret line="72" column="41" selection-start-line="72" selection-start-column="41" selection-end-line="72" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#802#803#0" expanded="true" />
+            <element signature="e#838#839#0" expanded="true" />
+            <element signature="e#877#878#0" expanded="true" />
+            <element signature="e#909#910#0" expanded="true" />
+            <element signature="e#2098#2099#0" expanded="true" />
+            <element signature="e#2128#2129#0" expanded="true" />
           </folding>
         </state>
       </provider>

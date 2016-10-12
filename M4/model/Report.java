@@ -15,8 +15,10 @@ public class Report {
     private String type;//need on creation
     private String condition;
     private boolean status;
+    private String NSDir;
+    private String EWDir;
 
-    public Report(double x, double y, String Type, String Condition, User reporter) {
+    public Report(double x, double y, String Type, String Condition, User reporter, String NSDir, String EWDir) {
         //TODO: autogenerate number
         xCoordinate = x;
         yCoordinate = y;
@@ -26,6 +28,8 @@ public class Report {
         type = Type;
         condition = Condition;
         status = false;
+        this.NSDir = NSDir;
+        this.EWDir = EWDir;
     }
 
     public int getNumber() {
@@ -86,5 +90,13 @@ public class Report {
 
     public String toString() {
         return type;
+    }
+
+    public String getNSDir() {
+        return NSDir;
+    }
+
+    public String getEWDir() {
+        return EWDir;
     }
 }

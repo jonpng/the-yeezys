@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 
 public class AddReportScreenController {
 
@@ -36,6 +37,12 @@ public class AddReportScreenController {
     @FXML
     private Label coorErr;
 
+    @FXML
+    private Button nsBtn;
+
+    @FXML
+    private Button ewBtn;
+
     public void setMain(MainFXApplication screen) {
         this.screen = screen;
     }
@@ -50,6 +57,9 @@ public class AddReportScreenController {
         double lat = 0;
         try {
             lat = Double.parseDouble(latitude);
+            if (lat > 180) {
+                coorErr.setVisible(true);
+            }
         } catch (Exception e) {
             coorErr.setVisible(true);
             return;
@@ -59,6 +69,9 @@ public class AddReportScreenController {
         double longi = 0;
         try {
             longi = Double.parseDouble(longitude);
+            if (longi > 180) {
+                coorErr.setVisible(true);
+            }
         } catch (Exception e) {
             coorErr.setVisible(true);
             return;
@@ -70,7 +83,7 @@ public class AddReportScreenController {
             return;
         }
 
-        Report report = new Report(lat, longi, name, null, user);
+        Report report = new Report(lat, longi, name, null, user, nsBtn.getText(), ewBtn.getText());
         report.setNumber(Report.getReports() + 1);
 
         ReportList<Report> reports = screen.getReports();
@@ -81,5 +94,25 @@ public class AddReportScreenController {
     @FXML
     private void handleCancel() {
         screen.init(4);
+    }
+
+    @FXML
+    private void handleNS() {
+        String dir = nsBtn.getText();
+        if (dir.equals("N")) {
+            nsBtn.setText("S");
+        } else {
+            nsBtn.setText("N");
+        }
+    }
+
+    @FXML
+    private void handleEW() {
+        String dir = ewBtn.getText();
+        if (dir.equals("E")) {
+            ewBtn.setText("W");
+        } else {
+            ewBtn.setText("E");
+        }
     }
 }
