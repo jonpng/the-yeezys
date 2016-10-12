@@ -79,9 +79,4 @@ public class MainScreenController {
     private void handleView() {
         screen.init(4);
     }
-
-    @FXML
-    private void handleVerify() {
-        screen.init(5);
-    }
 }

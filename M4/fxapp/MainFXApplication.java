@@ -4,12 +4,14 @@ import controller.EditProfileScreenController;
 import controller.LoginScreenController;
 import controller.MainScreenController;
 import controller.RegistrationScreenController;
+import controller.ReportListController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import model.User;
+import model.Report;
 
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -21,10 +23,12 @@ public class MainFXApplication extends Application {
 	private Stage stage;
 	private Pane layout;
 	private ArrayList<User> users = new ArrayList<User>();
+	private ArrayList<Report> reports = new ArrayList<Report>();
 	private LoginScreenController loginControl;
 	private MainScreenController mainControl;
 	private RegistrationScreenController regControl;
 	private EditProfileScreenController editControl;
+	private ReportListController reportControl;
 
 	@Override
 	public void start(Stage stage) {
@@ -114,6 +118,26 @@ public class MainFXApplication extends Application {
 		}
 	}
 
+	private void initReportList(Stage stage) {
+		FXMLLoader loader = new FXMLLoader();
+		try {
+			loader.setLocation(this.getClass().getResource("../view/ReportListScreen.fxml"));
+			layout = loader.load();
+
+			reportControl = loader.getController();
+			reportControl.setMain(this);
+
+			reportControl.loadReports(reports);
+			stage.setTitle("Water Conservation Report");
+			stage.setScene(new Scene(layout));
+			stage.show();
+		} catch (Exception e) {
+			LOGGER.log(Level.SEVERE, "Error occurred");
+			e.printStackTrace();
+			System.exit(0);
+		}
+	}
+
 	public void init(int select) {
 		if (select == 0) {
 			initLayout(stage);
@@ -121,8 +145,10 @@ public class MainFXApplication extends Application {
 			initApp(stage);
 		} else if (select == 2) {
 			initReg(stage);
-		} else {
+		} else if (select == 3) {
 			initEdit(stage);
+		} else if (select == 4) {
+			initReportList(stage);
 		}
 	}
 

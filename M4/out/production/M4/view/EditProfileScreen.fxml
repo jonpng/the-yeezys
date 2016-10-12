@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<Pane fx:id="confirm" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditProfileScreenController">
+   <children>
+      <VBox alignment="CENTER" layoutX="50.0" prefHeight="200.0" prefWidth="300.0" spacing="20.0">
+         <children>
+            <Label text="Edit Profile">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <TextField fx:id="newName" promptText="Name" />
+            <TextField fx:id="newAddr" promptText="Address" />
+            <TextField fx:id="newEmail" promptText="Email Address" />
+            <TextField fx:id="newPass" promptText="Password" />
+            <TextField fx:id="confirmPass" promptText="Confirm Password" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="190.0">
+               <children>
+                  <Button fx:id="cancel" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
+                  <Button mnemonicParsing="false" onAction="#handleConfirm" text="Confirm" />
+               </children>
+            </HBox>
+            <Label fx:id="passError" text="Passwords don't match" visible="false" />
+         </children>
+      </VBox>
+   </children>
+</Pane>
