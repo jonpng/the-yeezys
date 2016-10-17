@@ -42,6 +42,10 @@ public class MainFXApplication extends Application {
 		initLayout(this.stage);
 	}
 
+	/**
+	 * Initializes and loads the login screen.
+	 * @param stage Stage that screen is loaded into.
+	 */
 	private void initLayout(Stage stage) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -62,6 +66,10 @@ public class MainFXApplication extends Application {
 		}
 	}
 
+	/**
+	 * Initializes and loads the Main App Screen,
+	 * @param stage loaded for user to interact with.
+	 */
 	private void initApp(Stage stage) {
 		FXMLLoader loader = new FXMLLoader();
 		try {
@@ -84,6 +92,10 @@ public class MainFXApplication extends Application {
 		}
 	}
 
+	/**
+	 * Initializes and loads the registration screen.
+	 * @param stage loaded for user to interact with
+	 */
 	private void initReg(Stage stage) {
 		FXMLLoader loader = new FXMLLoader();
 		try {
@@ -104,6 +116,10 @@ public class MainFXApplication extends Application {
 		}
 	}
 
+	/**
+	 * Initializes and loads the edit profile screen.
+	 * @param stage loaded for user to interact with.
+	 */
 	private void initEdit(Stage stage) {
 		FXMLLoader loader = new FXMLLoader();
 		try {
@@ -124,6 +140,10 @@ public class MainFXApplication extends Application {
 		}
 	}
 
+    /**
+     * Initializes and loads report list.
+     * @param stage loaded for user to interact with.
+     */
 	private void initReportList(Stage stage) {
 		FXMLLoader loader = new FXMLLoader();
 		try {
@@ -145,6 +165,10 @@ public class MainFXApplication extends Application {
 		}
 	}
 
+    /**
+     * Initializes and loads the add report screen.
+     * @param stage loaded for user to interact with.
+     */
 	private void initAdd(Stage stage) {
 		FXMLLoader loader = new FXMLLoader();
 		try {
@@ -165,6 +189,10 @@ public class MainFXApplication extends Application {
 		}
 	}
 
+    /**
+     * Initializes and loads an individual report.
+     * @param stage loaded for user to interact with.
+     */
 	private void initRep(Stage stage) {
 		FXMLLoader loader = new FXMLLoader();
 		try {
@@ -185,6 +213,10 @@ public class MainFXApplication extends Application {
 		}
 	}
 
+    /**
+     * Initializes and loads a specific screen.
+     * @param select Integer value used to select which screen to load.
+     */
 	public void init(int select) {
 		if (select == 0) {
 			initLayout(stage);
@@ -203,22 +235,44 @@ public class MainFXApplication extends Application {
 		}
 	}
 
+    /**
+     * Adds a User to the system.
+     * @param user User added to the system.
+     */
 	public void addUser(User user) {
 		users.add(user);
-}
+    }
 
+    /**
+     * Gets a list of Users registered in the system.
+     * @return list of Users
+     */
 	public ArrayList<User> getUsers() {
 		return users;
 	}
 
+    /**
+     * Adds a report to the app
+     * @param r report added to the application.
+     */
 	public void addReport(Report r) {
 		reports.add(r);
 	}
 
+    /**
+     * Gets a list of Reports listed in the system.
+     * @return list of Reports
+     */
 	public ReportList<Report> getReports() {
 		return reports;
 	}
 
+    /**
+     * Checks entered credentials, and logs user in if applicable.
+     * @param username username entered by the user.
+     * @param password password entered by the user.
+     * @return User whose username and password matches the params.
+     */
 	public User login(String username, String password) {
 		for (int i = 0; i < users.size(); i++) {
 			if (users.get(i).verify(username, password)) {

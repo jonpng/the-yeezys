@@ -18,6 +18,16 @@ public class Report {
     private String NSDir;
     private String EWDir;
 
+    /**
+     * Contructor for a Report.
+     * @param x Latitude coordinate
+     * @param y Longitude coordinate
+     * @param Type Name of Report
+     * @param Condition Condition of the source
+     * @param reporter User who reported the source
+     * @param NSDir Latitude direction
+     * @param EWDir Longitude direction.
+     */
     public Report(double x, double y, String Type, String Condition, User reporter, String NSDir, String EWDir) {
         //TODO: autogenerate number
         xCoordinate = x;
@@ -33,70 +43,138 @@ public class Report {
         reports++;
     }
 
+    /**
+     * Returns the report number.
+     * @return report number (int)
+     */
     public int getNumber() {
         return number;
     }
 
+    /**
+     * Sets the latitude.
+     * @param x A latitude coordinate
+     */
     public void setX(double x) {
         this.xCoordinate = x;
     }
 
+    /**
+     * Gets the latitude coordinate
+     * @return A longitude coordinate.
+     */
     public double getX() {
         return xCoordinate;
     }
 
+    /**
+     * Sets longitude coordinate
+     * @param y longitude coordate
+     */
     public void setY(double y) {
         this.yCoordinate = y;
     }
 
+    /**
+     * Gets longitude coordinate.
+     * @return longitude coordinate.
+     */
     public double getY() {
         return yCoordinate;
     }
 
+    /**
+     * Gets the date that the report was submitted.
+     * @return date of submission
+     */
     public String getDate() {
         return new SimpleDateFormat("yyyy.MM.dd.HH.mm").format(submitted);
     }
 
+    /**
+     * Gets the reporter who submitted the report.
+     * @return reporter of report
+     */
     public User getReporter() {
         return reporter;
     }
 
+    /**
+     * Set the verifier of the report.
+     * @param verifier verifier of the report.
+     */
     public void setVerifier(User verifier) {
         this.verifier = verifier;
     }
 
+    /**
+     * Gets the user who verified the report.
+     * @return verifer of the report.
+     */
     public User getVerifier() {
         return verifier;
     }
 
+    /**
+     * Returns the Type of report.
+     * @return Type of report
+     */
     public String getType() {
         return type;
     }
 
+    /**
+     * Sets the condition of the water source.
+     * @param Condition condition of water source.
+     */
     public void setCondition(String Condition) {
         this.condition = Condition;
     }
 
+    /**
+     * Gets the condition of the water source.
+     * @return condition of water source.
+     */
     public String getCondition() {
         return condition;
     }
 
+    /**
+     * Returns the total number of reports submitted.
+     * @return reports submitted.
+     */
     public static int getReports() {
         return reports;
     }
 
+    /**
+     * Sets the report number
+     * @param num report number
+     */
     public void setNumber(int num) {
         number = num;
     }
 
+    /**
+     * Returns a String representation of a report.
+     * @return String representation of a report.
+     */
     public String toString() {
         return type;
     }
 
+    /**
+     * Returns the N/S direction
+     * @return North or South direction
+     */
     public String getNSDir() {
         return NSDir;
     }
 
+    /**
+     * Returns the E/W Direction
+     * @return East or West Direction
+     */
     public String getEWDir() {
         return EWDir;
     }

@@ -43,10 +43,18 @@ public class ReportController {
     @FXML
     private Label date;
 
+    /**
+     * Sets the controller's main to the application.
+     * @param screen The application using this controller.
+     */
     public void setMain(MainFXApplication screen) {
         this.screen = screen;
     }
 
+    /**
+     * Loads and displays a report.
+     * @param report Report that gets loaded and displayed.
+     */
     public void loadReport(Report report) {
         selection = report;
 
@@ -83,6 +91,9 @@ public class ReportController {
     }
 
     @FXML
+    /**
+     * Backs the user out of the report screen.
+     */
     private void handleBack() {
         screen.init(4);
     }
