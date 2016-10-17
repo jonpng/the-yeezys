@@ -38,16 +38,26 @@ public class LoginScreenController {
 
     private StringProperty nameProperty;
 
+    /**
+     * Sets app using this controller
+     * @param screen App using this controller
+     */
     public void setMain(MainFXApplication screen) {
         this.screen = screen;
     }
 
     @FXML
+    /**
+     * Action taken when user closes the application.
+     */
     private void handleClose() {
         System.exit(0);
     }
 
     @FXML
+    /**
+     * Action taken when user clicks Login.
+     */
     private void handleLogin() {
         String username = userField.getCharacters().toString();
         String password = passField.getCharacters().toString();
@@ -60,11 +70,18 @@ public class LoginScreenController {
     }
 
     @FXML
+    /**
+     * Action taken when user clicks Sign-Up
+     */
     private void handleSignUp() {
         screen.init(2);
     }
 
     @FXML
+    /**
+     * Get the user that logged into the system
+     * @return user that logged into the system
+     */
     public User getUser() {
         return user;
     }

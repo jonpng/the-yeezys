@@ -29,11 +29,18 @@ public class RegistrationScreenController {
     @FXML
     private ComboBox acctType;
 
+    /**
+     * Sets the application using this controller.
+     * @param screen application using the controller
+     */
     public void setMain(MainFXApplication screen) {
         this.screen = screen;
     }
 
     @FXML
+    /**
+     * Action taken when Register button clicked.
+     */
     private void handleRegister() {
         String username = userReg.getCharacters().toString();
         String name = nameReg.getCharacters().toString();
@@ -57,11 +64,17 @@ public class RegistrationScreenController {
     }
 
     @FXML
+    /**
+     * Action taken when cancel button clicked.
+     */
     private void handleCancel() {
         screen.init(0);
     }
 
     @FXML
+    /**
+     * Action taken when program closes.
+     */
     private void handleClose() {
         System.exit(0);
     }

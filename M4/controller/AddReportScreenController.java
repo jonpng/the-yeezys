@@ -43,15 +43,26 @@ public class AddReportScreenController {
     @FXML
     private Button ewBtn;
 
+    /**
+     * Sets the main app this controller pertains to.
+     * @param screen Main app using this controller.
+     */
     public void setMain(MainFXApplication screen) {
         this.screen = screen;
     }
 
+    /**
+     * Loads user that is adding report.
+     * @param user User adding a report.
+     */
     public void loadUser(User user) {
         this.user = user;
     }
 
     @FXML
+    /**
+     * Action taken when user clicks the Add Button
+     */
     private void handleAdd() {
         String latitude = latCoor.getCharacters().toString();
         double lat = 0;
@@ -94,11 +105,17 @@ public class AddReportScreenController {
     }
 
     @FXML
+    /**
+     * Action taken when user clicks the Cancel button.
+     */
     private void handleCancel() {
         screen.init(4);
     }
 
     @FXML
+    /**
+     * Action taken when user toggles N/S button.
+     */
     private void handleNS() {
         String dir = nsBtn.getText();
         if (dir.equals("N")) {
@@ -109,6 +126,9 @@ public class AddReportScreenController {
     }
 
     @FXML
+    /**
+     * Action taken when user toggles E/W button.
+     */
     private void handleEW() {
         String dir = ewBtn.getText();
         if (dir.equals("E")) {
