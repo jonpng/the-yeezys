@@ -100,6 +100,14 @@ public class ReportListController {
         screen.init(1);
     }
 
+    @FXML
+    /**
+     * Loads the map.
+     */
+    private void handleMap() {
+        screen.init(7);
+    }
+
     /**
      * Gets the selected report from the ListView.
      * @return Selected Report.

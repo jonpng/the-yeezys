@@ -7,6 +7,7 @@ import controller.RegistrationScreenController;
 import controller.ReportListController;
 import controller.AddReportScreenController;
 import controller.ReportController;
+import controller.WaterAvailabilityScreenController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -35,6 +36,7 @@ public class MainFXApplication extends Application {
 	private ReportListController reportControl;
 	private AddReportScreenController addReportControl;
 	private ReportController repControl;
+	private WaterAvailabilityScreenController mapControl;
 
 	@Override
 	public void start(Stage stage) {
@@ -207,12 +209,40 @@ public class MainFXApplication extends Application {
 			stage.setScene(new Scene(layout));
 			stage.show();
 		} catch (Exception e) {
-			LOGGER.log(Level.SEVERE, "Error occurred");
-			e.printStackTrace();
-			System.exit(0);
+			handle(e);
 		}
 	}
 
+	/**
+	 * Initializes and loads map
+	 * @param stage loaded for user to interact with
+	 */
+	private void initMap(Stage stage) {
+		FXMLLoader loader = new FXMLLoader();
+		try {
+			loader.setLocation(this.getClass().getResource("../view/WaterAvailabilityScreen.fxml"));
+			layout = loader.load();
+
+			mapControl = loader.getController();
+			mapControl.setMain(this);
+
+			stage.setTitle("Water Conservation Report");
+			stage.setScene(new Scene(layout));
+			stage.show();
+		} catch (Exception e) {
+			handle(e);
+		}
+	}
+
+	/**
+	 * Handles exceptions
+	 * @param e An exception to be handled.
+	 */
+	private void handle(Exception e) {
+		LOGGER.log(Level.SEVERE, "Error occurred");
+		e.printStackTrace();
+		System.exit(0);
+	}
     /**
      * Initializes and loads a specific screen.
      * @param select Integer value used to select which screen to load.
@@ -232,6 +262,8 @@ public class MainFXApplication extends Application {
 			initAdd(stage);
 		} else if (select == 6) {
 			initRep(stage);
+		} else if (select == 7) {
+			initMap(stage);
 		}
 	}
 
