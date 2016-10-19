@@ -61,9 +61,7 @@ public class MainFXApplication extends Application {
 			stage.setScene(scene);
 			stage.show();
 		} catch (Exception e) {
-			LOGGER.log(Level.SEVERE, "Error occurred");
-			e.printStackTrace();
-			System.exit(0);
+			handle(e);
 		}
 	}
 
@@ -87,9 +85,7 @@ public class MainFXApplication extends Application {
 			stage.setScene(scene);
 			stage.show();
 		} catch (Exception e) {
-			LOGGER.log(Level.SEVERE, "Error occurred");
-			e.printStackTrace();
-			System.exit(0);
+			handle(e);
 		}
 	}
 
@@ -111,9 +107,7 @@ public class MainFXApplication extends Application {
 			stage.setScene(scene);
 			stage.show();
 		} catch (Exception e) {
-			LOGGER.log(Level.SEVERE, "Error occurred");
-			e.printStackTrace();
-			System.exit(0);
+			handle(e);
 		}
 	}
 
@@ -135,9 +129,7 @@ public class MainFXApplication extends Application {
 			stage.setScene(scene);
 			stage.show();
 		} catch (Exception e) {
-			LOGGER.log(Level.SEVERE, "Error occurred");
-			e.printStackTrace();
-			System.exit(0);
+			handle(e);
 		}
 	}
 
