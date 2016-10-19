@@ -17,19 +17,10 @@ import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
-import javafx.stage.Stage;
-import javafx.scene.Scene;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.scene.layout.BorderPane;
-import javafx.scene.Node;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.Menu;
-
-public class WaterAvailabilityScreenController implements MapComponentInitializedListener {
+public class WaterAvailabilityScreenController implements Initializable, MapComponentInitializedListener {
 
     @FXML
     private GoogleMapView view;
@@ -41,9 +32,12 @@ public class WaterAvailabilityScreenController implements MapComponentInitialize
     }
 
     @Override
-    public void mapInitialized() {
+    public void initialize(URL location, ResourceBundle rb) {
         view.addMapInializedListener(this);
+    }
 
+    @Override
+    public void mapInitialized() {
         MapOptions options = new MapOptions();
 
         options.center(new LatLong(33.749, -84.3880))
@@ -67,6 +61,7 @@ public class WaterAvailabilityScreenController implements MapComponentInitialize
             Marker marker = new Marker(option);
             map.addMarker(marker);
         }
+        view.addMapInializedListener(this);
     }
 
     @FXML

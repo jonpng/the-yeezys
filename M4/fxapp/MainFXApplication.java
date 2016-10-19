@@ -20,11 +20,6 @@ import model.ReportList;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.collections.ObservableListBase;
-
-import com.lynden.gmapsfx.GoogleMapView;
-import com.lynden.gmapsfx.MapComponentInitializedListener;
-import netscape.javascript.JSObject;
 
 public class MainFXApplication extends Application {
 
