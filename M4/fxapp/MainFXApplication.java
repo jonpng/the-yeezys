@@ -224,6 +224,7 @@ public class MainFXApplication extends Application {
 
 			mapControl = loader.getController();
 			mapControl.setMain(this);
+			mapControl.loadReports(reports);
 
 			stage.setScene(new Scene(layout));
 			stage.show();

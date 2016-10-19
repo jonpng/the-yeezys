@@ -26,6 +26,7 @@ public class WaterAvailabilityScreenController implements Initializable, MapComp
     private GoogleMapView view;
     private GoogleMap map;
     private MainFXApplication app;
+    private ReportList<Report> reports;
 
     public void setMain(MainFXApplication app) {
         this.app = app;
@@ -51,9 +52,8 @@ public class WaterAvailabilityScreenController implements Initializable, MapComp
 
         map = view.createMap(options);
 
-        ReportList<Report> r = app.getReports();
-        for (int i = 0; i < r.size(); i++) {
-            Report report = r.get(i);
+        for (int i = 0; i < reports.size(); i++) {
+            Report report = reports.get(i);
             MarkerOptions option = new MarkerOptions();
             option.label(report.getType())
                     .position(new LatLong(report.getX(), report.getY()))
@@ -67,5 +67,9 @@ public class WaterAvailabilityScreenController implements Initializable, MapComp
     @FXML
     private void handleBack() {
         app.init(4);
+    }
+
+    public void loadReports(ReportList<Report> reports) {
+        this.reports = reports;
     }
 }
