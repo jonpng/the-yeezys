@@ -5,6 +5,7 @@ import controller.LoginScreenController;
 import controller.MainScreenController;
 import controller.RegistrationScreenController;
 import controller.ReportListController;
+import controller.ReportController2;
 import controller.AddReportScreenController;
 import controller.ReportController;
 import controller.WaterAvailabilityScreenController;
@@ -35,7 +36,9 @@ public class MainFXApplication extends Application {
 	private ReportListController reportControl;
 	private AddReportScreenController addReportControl;
 	private ReportController repControl;
+	private ReportController2 repControl2;
 	private WaterAvailabilityScreenController mapControl;
+	private Report selected;
 
 	@Override
 	public void start(Stage stage) {
@@ -225,6 +228,22 @@ public class MainFXApplication extends Application {
 		}
 	}
 
+	private void initPin(Stage stage) {
+		FXMLLoader loader = new FXMLLoader();
+		try {
+			loader.setLocation(this.getClass().getResource("../view/ReportScreen2.fxml"));
+			layout = loader.load();
+
+			ReportController2 repControl2 = loader.getController();
+			repControl2.setMain(this);
+			repControl2.loadReport(selected);
+			stage.setScene(new Scene(layout));
+			stage.show();
+
+		} catch (Exception e) {
+			handle(e);
+		}
+	}
 	/**
 	 * Handles exceptions
 	 * @param e An exception to be handled.
@@ -255,6 +274,8 @@ public class MainFXApplication extends Application {
 			initRep(stage);
 		} else if (select == 7) {
 			initMap(stage);
+		} else if (select == 8) {
+			initPin(stage);
 		}
 	}
 
@@ -303,6 +324,10 @@ public class MainFXApplication extends Application {
 			}
 		}
 		return null;
+	}
+
+	public void setSelected(Report report) {
+		this.selected = report;
 	}
 
 	public static void main(String[]args) {

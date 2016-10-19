@@ -70,7 +70,7 @@ public class ReportListController {
      * Loads the view report screen when user selects a report to view.
      */
     private void handleViewRep() {
-        if (reportList.getItems().size() == 0) {
+        if (reportList.getItems().size() == 0 || reportList.getSelectionModel().getSelectedItem() == null) {
             return;
         }
         screen.init(6);

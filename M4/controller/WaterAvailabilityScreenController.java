@@ -20,6 +20,11 @@ import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.lynden.gmapsfx.javascript.event.UIEventHandler;
+import com.lynden.gmapsfx.javascript.event.UIEventType;
+import netscape.javascript.JSObject;
+import java.util.ArrayList;
+
 public class WaterAvailabilityScreenController implements Initializable, MapComponentInitializedListener {
 
     @FXML
@@ -27,6 +32,7 @@ public class WaterAvailabilityScreenController implements Initializable, MapComp
     private GoogleMap map;
     private MainFXApplication app;
     private ReportList<Report> reports;
+    private ArrayList<String> markerNames = new ArrayList<String>();
 
     public void setMain(MainFXApplication app) {
         this.app = app;
@@ -58,7 +64,20 @@ public class WaterAvailabilityScreenController implements Initializable, MapComp
             option.label(report.getType())
                     .position(new LatLong(report.getX(), report.getY()))
                     .visible(true);
+            markerNames.add(report.getType());
             Marker marker = new Marker(option);
+            map.addUIEventHandler(marker, UIEventType.click, (JSObject obj) -> {
+                for (int j = 0; j < reports.size(); j++) {
+                    Report rep = reports.get(j);
+                    for (int k = 0; k < markerNames.size(); k++) {
+                        if (rep.getType().equals(markerNames.get(k))) {
+                            app.setSelected(rep);
+                            app.init(8);
+                            return;
+                        }
+                    }
+                }
+            });
             map.addMarker(marker);
         }
         view.addMapInializedListener(this);
