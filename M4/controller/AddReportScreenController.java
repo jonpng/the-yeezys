@@ -96,6 +96,12 @@ public class AddReportScreenController {
             return;
         }
 
+        if (nsBtn.getText().equalsIgnoreCase("S")) {
+            lat *= -1;
+        }
+        if (ewBtn.getText().equalsIgnoreCase("W")) {
+            longi *= -1;
+        }
         Report report = new Report(lat, longi, name, null, user, nsBtn.getText(), ewBtn.getText());
         report.setNumber(Report.getReports());
 

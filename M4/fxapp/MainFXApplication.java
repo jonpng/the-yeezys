@@ -22,6 +22,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.ObservableListBase;
 
+import com.lynden.gmapsfx.GoogleMapView;
+import com.lynden.gmapsfx.MapComponentInitializedListener;
+import netscape.javascript.JSObject;
+
 public class MainFXApplication extends Application {
 
 	private static final Logger LOGGER = Logger.getLogger("fxapp.MainFXApplication");
@@ -226,7 +230,6 @@ public class MainFXApplication extends Application {
 			mapControl = loader.getController();
 			mapControl.setMain(this);
 
-			stage.setTitle("Water Conservation Report");
 			stage.setScene(new Scene(layout));
 			stage.show();
 		} catch (Exception e) {
@@ -315,6 +318,7 @@ public class MainFXApplication extends Application {
 	}
 
 	public static void main(String[]args) {
+		System.setProperty("java.net.useSystemProxies", "true");
 		launch(args);
 	}
 }
