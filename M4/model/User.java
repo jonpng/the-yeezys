@@ -1,7 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-
 /**
  * Created by Brandon on 10/2/16.
  */
@@ -9,18 +7,24 @@ public class User {
 
     private String name;
     private String username;
-    private String password;
+    private int password;
     private String email;
     private String address;
     private String accountType;
 
-    public User(String name, String username, String password, String AccountType) {
+    public User(String name, String username, int password, String accountType) {
         this.name = name;
         this.username = username;
         this.password = password;
-        email = "";
-        address = "";
-        accountType = AccountType;
+        this.email = "";
+        this.address = "";
+        this.accountType = accountType;
+    }
+
+    public User(String name, String username, int password, String accountType, String email, String address) {
+        this(name, username, password, accountType);
+        this.email = email;
+        this.address = address;
     }
 
     public void setUsername(String username) {
@@ -31,12 +35,12 @@ public class User {
         return username;
     }
 
-    public String getPassword() {
+    public int getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = password.hashCode();
     }
 
     public void setEmail(String email) {
@@ -68,6 +72,6 @@ public class User {
     }
 
     public boolean verify(String username, String password) {
-        return (this.username.equals(username) && this.password.equals(password));
+        return (this.username.equals(username) && this.password == password.hashCode());
     }
 }

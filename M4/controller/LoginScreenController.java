@@ -3,14 +3,15 @@ package controller; /**
  */
 
 import fxapp.MainFXApplication;
-import model.User;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.beans.property.StringProperty;
-import javafx.beans.property.SimpleStringProperty;
+import model.PersistenceManager;
+import model.User;
+
+import java.util.NoSuchElementException;
 
 public class LoginScreenController {
 
@@ -51,12 +52,30 @@ public class LoginScreenController {
     private void handleLogin() {
         String username = userField.getCharacters().toString();
         String password = passField.getCharacters().toString();
-        user = screen.login(username, password);
+        /*user = screen.login(username, password);
+
         if (user != null) {
             screen.init(1);
         } else {
             incorrect.setVisible(true);
+        }*/
+
+
+        //Persistence code can only be used once the sql server is being hosted online
+        try {
+            user = PersistenceManager.accessUser(username, password.hashCode());
+
+            if (user != null) {
+                screen.init(1);
+            } else {
+                incorrect.setVisible(true);
+            }
+        } catch (NoSuchElementException e) {
+            incorrect.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
     }
 
     @FXML
