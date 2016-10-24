@@ -1,17 +1,17 @@
 package controller;
 
 /**
- * Created by Brandon on 10/12/16.
+ * Created by Brandon on 10/19/16.
  */
 
-import javafx.fxml.FXML;
 import fxapp.MainFXApplication;
-import javafx.scene.control.Label;
+import javafx.fxml.FXML;
 
+import javafx.scene.control.Label;
 import model.User;
 import model.Report;
 
-public class ReportController {
+public class ReportController2 {
 
     private MainFXApplication screen;
     private Report selection;
@@ -91,10 +91,7 @@ public class ReportController {
     }
 
     @FXML
-    /**
-     * Backs the user out of the report screen.
-     */
     private void handleBack() {
-        screen.init(4);
+        screen.init(7);
     }
 }

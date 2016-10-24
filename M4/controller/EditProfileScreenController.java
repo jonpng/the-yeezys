@@ -34,6 +34,9 @@ public class EditProfileScreenController {
     private Label passError;
 
     @FXML
+    /**
+     * Action taken when user clicks the Confirm button.
+     */
     private void handleConfirm() {
         String name = newName.getCharacters().toString();
         String addr = newAddr.getCharacters().toString();
@@ -61,14 +64,25 @@ public class EditProfileScreenController {
     }
 
     @FXML
+    /**
+     * Action taken when user clicks the Cancel buttom
+     */
     private void handleCancel() {
         screen.init(1);
     }
 
+    /**
+     * Sets the main application that this controller pertains to.
+     * @param app App using the controller.
+     */
     public void setMain(MainFXApplication app) {
         screen = app;
     }
 
+    /**
+     * Loads the user editing profile.
+     * @param user User trying to edit profile.
+     */
     public void loadUser(User user) {
         this.user = user;
     }

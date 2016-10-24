@@ -10,8 +10,9 @@
       <ListView fx:id="reportList" layoutX="57.0" layoutY="14.0" prefHeight="280.0" prefWidth="500.0" />
       <Label fx:id="noReports" layoutX="245.0" layoutY="111.0" text="No Reports Avaliable" />
       <Button fx:id="viewReport" layoutX="63.0" layoutY="333.0" mnemonicParsing="false" onAction="#handleViewRep" text="View Report" />
-      <Button fx:id="addReport" layoutX="257.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleAddRep" text="Add Report" />
+      <Button fx:id="addReport" layoutX="191.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleAddRep" text="Add Report" />
       <Button fx:id="verifyReport" layoutX="462.0" layoutY="333.0" mnemonicParsing="false" onAction="#handleVerifyRep" text="Verify Report" />
-      <Button fx:id="back" layoutX="271.0" layoutY="359.0" mnemonicParsing="false" text="Back" onAction="#handleBack"/>
+      <Button fx:id="back" layoutX="271.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
+      <Button fx:id="mapBtn" layoutX="336.0" layoutY="320.0" mnemonicParsing="false" text="Display Map" onAction="#handleMap"/>
    </children>
 </Pane>

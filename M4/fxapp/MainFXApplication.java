@@ -5,8 +5,10 @@ import controller.LoginScreenController;
 import controller.MainScreenController;
 import controller.RegistrationScreenController;
 import controller.ReportListController;
+import controller.ReportController2;
 import controller.AddReportScreenController;
 import controller.ReportController;
+import controller.WaterAvailabilityScreenController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -19,7 +21,6 @@ import model.ReportList;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.collections.ObservableListBase;
 
 public class MainFXApplication extends Application {
 
@@ -35,6 +36,9 @@ public class MainFXApplication extends Application {
 	private ReportListController reportControl;
 	private AddReportScreenController addReportControl;
 	private ReportController repControl;
+	private ReportController2 repControl2;
+	private WaterAvailabilityScreenController mapControl;
+	private Report selected;
 
 	@Override
 	public void start(Stage stage) {
@@ -42,6 +46,10 @@ public class MainFXApplication extends Application {
 		initLayout(this.stage);
 	}
 
+	/**
+	 * Initializes and loads the login screen.
+	 * @param stage Stage that screen is loaded into.
+	 */
 	private void initLayout(Stage stage) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -56,12 +64,14 @@ public class MainFXApplication extends Application {
 			stage.setScene(scene);
 			stage.show();
 		} catch (Exception e) {
-			LOGGER.log(Level.SEVERE, "Error occurred");
-			e.printStackTrace();
-			System.exit(0);
+			handle(e);
 		}
 	}
 
+	/**
+	 * Initializes and loads the Main App Screen,
+	 * @param stage loaded for user to interact with.
+	 */
 	private void initApp(Stage stage) {
 		FXMLLoader loader = new FXMLLoader();
 		try {
@@ -78,12 +88,14 @@ public class MainFXApplication extends Application {
 			stage.setScene(scene);
 			stage.show();
 		} catch (Exception e) {
-			LOGGER.log(Level.SEVERE, "Error occurred");
-			e.printStackTrace();
-			System.exit(0);
+			handle(e);
 		}
 	}
 
+	/**
+	 * Initializes and loads the registration screen.
+	 * @param stage loaded for user to interact with
+	 */
 	private void initReg(Stage stage) {
 		FXMLLoader loader = new FXMLLoader();
 		try {
@@ -98,12 +110,14 @@ public class MainFXApplication extends Application {
 			stage.setScene(scene);
 			stage.show();
 		} catch (Exception e) {
-			LOGGER.log(Level.SEVERE, "Error occurred");
-			e.printStackTrace();
-			System.exit(0);
+			handle(e);
 		}
 	}
 
+	/**
+	 * Initializes and loads the edit profile screen.
+	 * @param stage loaded for user to interact with.
+	 */
 	private void initEdit(Stage stage) {
 		FXMLLoader loader = new FXMLLoader();
 		try {
@@ -118,12 +132,14 @@ public class MainFXApplication extends Application {
 			stage.setScene(scene);
 			stage.show();
 		} catch (Exception e) {
-			LOGGER.log(Level.SEVERE, "Error occurred");
-			e.printStackTrace();
-			System.exit(0);
+			handle(e);
 		}
 	}
 
+    /**
+     * Initializes and loads report list.
+     * @param stage loaded for user to interact with.
+     */
 	private void initReportList(Stage stage) {
 		FXMLLoader loader = new FXMLLoader();
 		try {
@@ -145,6 +161,10 @@ public class MainFXApplication extends Application {
 		}
 	}
 
+    /**
+     * Initializes and loads the add report screen.
+     * @param stage loaded for user to interact with.
+     */
 	private void initAdd(Stage stage) {
 		FXMLLoader loader = new FXMLLoader();
 		try {
@@ -165,6 +185,10 @@ public class MainFXApplication extends Application {
 		}
 	}
 
+    /**
+     * Initializes and loads an individual report.
+     * @param stage loaded for user to interact with.
+     */
 	private void initRep(Stage stage) {
 		FXMLLoader loader = new FXMLLoader();
 		try {
@@ -179,12 +203,60 @@ public class MainFXApplication extends Application {
 			stage.setScene(new Scene(layout));
 			stage.show();
 		} catch (Exception e) {
-			LOGGER.log(Level.SEVERE, "Error occurred");
-			e.printStackTrace();
-			System.exit(0);
+			handle(e);
 		}
 	}
 
+	/**
+	 * Initializes and loads map
+	 * @param stage loaded for user to interact with
+	 */
+	private void initMap(Stage stage) {
+		FXMLLoader loader = new FXMLLoader();
+		try {
+			loader.setLocation(this.getClass().getResource("../view/WaterAvailabilityScreen.fxml"));
+			layout = loader.load();
+
+			mapControl = loader.getController();
+			mapControl.setMain(this);
+			mapControl.loadReports(reports);
+
+			stage.setScene(new Scene(layout));
+			stage.show();
+		} catch (Exception e) {
+			handle(e);
+		}
+	}
+
+	private void initPin(Stage stage) {
+		FXMLLoader loader = new FXMLLoader();
+		try {
+			loader.setLocation(this.getClass().getResource("../view/ReportScreen2.fxml"));
+			layout = loader.load();
+
+			ReportController2 repControl2 = loader.getController();
+			repControl2.setMain(this);
+			repControl2.loadReport(selected);
+			stage.setScene(new Scene(layout));
+			stage.show();
+
+		} catch (Exception e) {
+			handle(e);
+		}
+	}
+	/**
+	 * Handles exceptions
+	 * @param e An exception to be handled.
+	 */
+	private void handle(Exception e) {
+		LOGGER.log(Level.SEVERE, "Error occurred");
+		e.printStackTrace();
+		System.exit(0);
+	}
+    /**
+     * Initializes and loads a specific screen.
+     * @param select Integer value used to select which screen to load.
+     */
 	public void init(int select) {
 		if (select == 0) {
 			initLayout(stage);
@@ -200,25 +272,51 @@ public class MainFXApplication extends Application {
 			initAdd(stage);
 		} else if (select == 6) {
 			initRep(stage);
+		} else if (select == 7) {
+			initMap(stage);
+		} else if (select == 8) {
+			initPin(stage);
 		}
 	}
 
+    /**
+     * Adds a User to the system.
+     * @param user User added to the system.
+     */
 	public void addUser(User user) {
 		users.add(user);
-}
+    }
 
+    /**
+     * Gets a list of Users registered in the system.
+     * @return list of Users
+     */
 	public ArrayList<User> getUsers() {
 		return users;
 	}
 
+    /**
+     * Adds a report to the app
+     * @param r report added to the application.
+     */
 	public void addReport(Report r) {
 		reports.add(r);
 	}
 
+    /**
+     * Gets a list of Reports listed in the system.
+     * @return list of Reports
+     */
 	public ReportList<Report> getReports() {
 		return reports;
 	}
 
+    /**
+     * Checks entered credentials, and logs user in if applicable.
+     * @param username username entered by the user.
+     * @param password password entered by the user.
+     * @return User whose username and password matches the params.
+     */
 	public User login(String username, String password) {
 		for (int i = 0; i < users.size(); i++) {
 			if (users.get(i).verify(username, password)) {
@@ -228,7 +326,12 @@ public class MainFXApplication extends Application {
 		return null;
 	}
 
+	public void setSelected(Report report) {
+		this.selected = report;
+	}
+
 	public static void main(String[]args) {
+		System.setProperty("java.net.useSystemProxies", "true");
 		launch(args);
 	}
 }

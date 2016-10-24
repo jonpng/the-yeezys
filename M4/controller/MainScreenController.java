@@ -32,18 +32,32 @@ public class MainScreenController {
     private Label type;
 
     @FXML
+    /**
+     * Action taken when Logout is pressed
+     */
     private void handleLogout() {
         screen.init(0);
     }
 
+    /**
+     * Sets the main application this controller pertains to.
+     * @param app application controller is used.
+     */
     public void setMain(MainFXApplication app) {
         screen = app;
     }
 
+    /**
+     * Loads the user logged into the system
+     * @param user user logged into the system
+     */
     public void loadUser(User user) {
         this.user = user;
     }
 
+    /**
+     * Loads the profile of the user logged into the system.
+     */
     public void loadProfile() {
         String name = user.getName();
         String email = user.getEmail();
@@ -61,21 +75,34 @@ public class MainScreenController {
         this.type.setVisible(true);
     }
 
+    /**
+     * Gets the user logged into the system
+     * @return user logged into the system
+     */
     public User getUser() {
         return user;
     }
 
     @FXML
+    /**
+     * Action taken when Edit button selected.
+     */
     private void handleEdit() {
         screen.init(3);
     }
 
     @FXML
+    /**
+     * Action taken when program closes.
+     */
     private void handleClose() {
         System.exit(0);
     }
 
     @FXML
+    /**
+     * Action taken when View Report button clicked.
+     */
     private void handleView() {
         screen.init(4);
     }
