@@ -8,6 +8,7 @@ import fxapp.MainFXApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import model.PersistenceManager;
 import model.User;
 
 public class EditProfileScreenController {
@@ -44,22 +45,38 @@ public class EditProfileScreenController {
         String pass = newPass.getCharacters().toString();
         String confirm = confirmPass.getCharacters().toString();
 
+        int oldPass = user.getPassword();
+        int updatePass;
+
         if (!pass.equals("") && pass.equals(confirm)) {
             user.setPassword(pass);
+            updatePass = pass.hashCode();
         } else if (!pass.equals(confirm)) {
             passError.setVisible(true);
             return;
-        }
-        if (!name.equals("")) {
-            user.setName(name);
-        }
-        if (!addr.equals("")) {
-            user.setAddress(addr);
-        }
-        if (!email.equals("")) {
-            user.setEmail(email);
+        } else {
+            updatePass = user.getPassword();
         }
 
+        if (!name.equals("")) {
+            user.setName(name);
+        } else {
+            name = user.getName();
+        }
+
+        if (!addr.equals("")) {
+            user.setAddress(addr);
+        } else {
+            addr = user.getAddress();
+        }
+
+        if (!email.equals("")) {
+            user.setEmail(email);
+        } else {
+            email = user.getEmail();
+        }
+
+        PersistenceManager.updateUser(user.getUsername(), oldPass, name, updatePass, addr, email);
         screen.init(1);
     }
 
