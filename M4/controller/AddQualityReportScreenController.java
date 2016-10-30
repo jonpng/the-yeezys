@@ -7,14 +7,13 @@ package controller;
 import fxapp.MainFXApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import model.Report;
 import model.ReportList;
 import model.User;
 
-public class AddReportScreenController {
+public class AddQualityReportScreenController {
 
     private MainFXApplication screen;
     private User user;
@@ -39,13 +38,6 @@ public class AddReportScreenController {
 
     @FXML
     private Button ewBtn;
-
-    @FXML
-    private ComboBox<String> srcType;
-
-    @FXML
-    private ComboBox<String> srcCondition;
-
 
     /**
      * Sets the main app this controller pertains to.
@@ -106,11 +98,7 @@ public class AddReportScreenController {
         if (ewBtn.getText().equalsIgnoreCase("W")) {
             longi *= -1;
         }
-
-        String type = srcType.getValue();
-        String condition = srcCondition.getValue();
-
-        Report report = new Report(lat, longi, name, condition, user, nsBtn.getText(), ewBtn.getText(), type);
+        Report report = new Report(lat, longi, name, null, user, nsBtn.getText(), ewBtn.getText(), "Placeholder");
         report.setNumber(Report.getReports());
 
         ReportList<Report> reports = screen.getReports();

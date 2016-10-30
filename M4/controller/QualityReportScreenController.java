@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
 import model.Report;
 import model.User;
 
-public class ReportController {
+public class QualityReportScreenController {
 
     private MainFXApplication screen;
     private Report selection;
@@ -22,26 +22,19 @@ public class ReportController {
     private Label name;
 
     @FXML
-    private Label latitude;
-
-    @FXML
-    private Label longitude;
-
-    @FXML
-    private Label nsLabel;
-
-    @FXML
-    private Label ewLabel;
-
-    @FXML
     private Label number;
 
     @FXML
-    private Label verified;
+    private Label condition;
 
     @FXML
     private Label date;
 
+    @FXML
+    private Label type;
+
+    @FXML
+    private Label srcLocation;
     /**
      * Sets the controller's main to the application.
      * @param screen The application using this controller.
@@ -61,31 +54,28 @@ public class ReportController {
         User reporter = selection.getReporter();
         String ns = selection.getNSDir();
         String ew = selection.getEWDir();
-        String reportName = selection.getName();
-        String condition = selection.getCondition();
+        String reportName = selection.getReportName();
+        String reportCondition = selection.getCondition();
         int num = selection.getNumber();
         double lat = Math.abs(selection.getX());
         double lon = Math.abs(selection.getY());
 
+
+        srcLocation.setText(new String(lat + " " + ns + " " + lon + " " + ew));
         number.setText(Integer.toString(num));
         date.setText(day);
         srcName.setText(reportName);
         name.setText(reporter.getName());
-        latitude.setText(Double.toString(lat));
-        longitude.setText("\t" + Double.toString(lon));
-        nsLabel.setText("\t" + ns);
-        ewLabel.setText("\t" + ew);
-        verified.setText(condition);
+        condition.setText(reportCondition);
+        type.setText(selection.getType());
 
         number.setVisible(true);
         date.setVisible(true);
         srcName.setVisible(true);
         name.setVisible(true);
-        latitude.setVisible(true);
-        longitude.setVisible(true);
-        nsLabel.setVisible(true);
-        ewLabel.setVisible(true);
-        verified.setVisible(true);
+        srcLocation.setVisible(true);
+        condition.setVisible(true);
+        type.setVisible(true);
     }
 
     @FXML

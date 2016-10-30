@@ -25,10 +25,10 @@ public class MainFXApplication extends Application {
 	private MainScreenController mainControl;
 	private RegistrationScreenController regControl;
 	private EditProfileScreenController editControl;
-	private ReportListController reportControl;
+	private ReportListScreenController reportControl;
 	private AddReportScreenController addReportControl;
-	private ReportController repControl;
-	private QualityReportController repControl2;
+	private ReportScreenController repControl;
+	private QualityReportScreenController repControl2;
 	private WaterAvailabilityScreenController mapControl;
 	private Report selected;
 
@@ -195,6 +195,7 @@ public class MainFXApplication extends Application {
 			stage.setScene(new Scene(layout));
 			stage.show();
 		} catch (Exception e) {
+			e.printStackTrace();
 			handle(e);
 		}
 	}
@@ -226,7 +227,7 @@ public class MainFXApplication extends Application {
 			loader.setLocation(this.getClass().getResource("../view/QualityReportScreen.fxml"));
 			layout = loader.load();
 
-			QualityReportController repControl2 = loader.getController();
+			QualityReportScreenController repControl2 = loader.getController();
 			repControl2.setMain(this);
 			repControl2.loadReport(selected);
 			stage.setScene(new Scene(layout));

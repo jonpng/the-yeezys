@@ -55,16 +55,16 @@ public class WaterAvailabilityScreenController implements Initializable, MapComp
         for (int i = 0; i < reports.size(); i++) {
             Report report = reports.get(i);
             MarkerOptions option = new MarkerOptions();
-            option.label(report.getName())
+            option.label(report.getReportName())
                     .position(new LatLong(report.getX(), report.getY()))
                     .visible(true);
-            markerNames.add(report.getName());
+            markerNames.add(report.getReportName());
             Marker marker = new Marker(option);
             map.addUIEventHandler(marker, UIEventType.click, (JSObject obj) -> {
                 for (int j = 0; j < reports.size(); j++) {
                     Report rep = reports.get(j);
                     for (int k = 0; k < markerNames.size(); k++) {
-                        if (rep.getName().equals(markerNames.get(k))) {
+                        if (rep.getReportName().equals(markerNames.get(k))) {
                             app.setSelected(rep);
                             app.init(8);
                             return;

@@ -14,7 +14,7 @@ import model.ReportList;
 import model.User;
 
 
-public class ReportListController {
+public class ReportListScreenController {
 
     private MainFXApplication screen;
     private ReportList<Report> reports;
@@ -45,7 +45,7 @@ public class ReportListController {
     private Button verifyReport;
 
     /**
-     * Sets the main application using this instance of ReportListController
+     * Sets the main application using this instance of ReportListScreenController
      * @param screen application using the controller.
      */
     public void setMain(MainFXApplication screen) {
