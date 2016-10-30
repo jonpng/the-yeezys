@@ -1,22 +1,14 @@
 package fxapp;
 
-import controller.EditProfileScreenController;
-import controller.LoginScreenController;
-import controller.MainScreenController;
-import controller.RegistrationScreenController;
-import controller.ReportListController;
-import controller.ReportController2;
-import controller.AddReportScreenController;
-import controller.ReportController;
-import controller.WaterAvailabilityScreenController;
+import controller.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import model.User;
 import model.Report;
 import model.ReportList;
+import model.User;
 
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -36,7 +28,7 @@ public class MainFXApplication extends Application {
 	private ReportListController reportControl;
 	private AddReportScreenController addReportControl;
 	private ReportController repControl;
-	private ReportController2 repControl2;
+	private QualityReportController repControl2;
 	private WaterAvailabilityScreenController mapControl;
 	private Report selected;
 
@@ -231,10 +223,10 @@ public class MainFXApplication extends Application {
 	private void initPin(Stage stage) {
 		FXMLLoader loader = new FXMLLoader();
 		try {
-			loader.setLocation(this.getClass().getResource("../view/ReportScreen2.fxml"));
+			loader.setLocation(this.getClass().getResource("../view/QualityReportScreen.fxml"));
 			layout = loader.load();
 
-			ReportController2 repControl2 = loader.getController();
+			QualityReportController repControl2 = loader.getController();
 			repControl2.setMain(this);
 			repControl2.loadReport(selected);
 			stage.setScene(new Scene(layout));

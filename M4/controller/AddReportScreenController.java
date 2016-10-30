@@ -4,18 +4,14 @@ package controller;
  * Created by Brandon on 10/12/16.
  */
 
-import javafx.fxml.FXML;
-
 import fxapp.MainFXApplication;
-import model.User;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import model.Report;
 import model.ReportList;
-
-import java.util.ArrayList;
-import javafx.collections.ObservableList;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Label;
-import javafx.scene.control.Button;
+import model.User;
 
 public class AddReportScreenController {
 
@@ -102,7 +98,7 @@ public class AddReportScreenController {
         if (ewBtn.getText().equalsIgnoreCase("W")) {
             longi *= -1;
         }
-        Report report = new Report(lat, longi, name, null, user, nsBtn.getText(), ewBtn.getText());
+        Report report = new Report(lat, longi, name, null, user, nsBtn.getText(), ewBtn.getText(), "Placeholder");
         report.setNumber(Report.getReports());
 
         ReportList<Report> reports = screen.getReports();

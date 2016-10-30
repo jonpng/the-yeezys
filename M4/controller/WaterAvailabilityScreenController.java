@@ -4,26 +4,20 @@ package controller;
  * Created by Brandon on 10/19/16.
  */
 
-import fxapp.MainFXApplication;
-import model.ReportList;
-import model.Report;
 import com.lynden.gmapsfx.GoogleMapView;
-import com.lynden.gmapsfx.javascript.object.GoogleMap;
-import com.lynden.gmapsfx.javascript.object.Marker;
-import com.lynden.gmapsfx.javascript.object.MarkerOptions;
-import com.lynden.gmapsfx.javascript.object.LatLong;
-import com.lynden.gmapsfx.javascript.object.MapOptions;
-import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
+import com.lynden.gmapsfx.javascript.event.UIEventType;
+import com.lynden.gmapsfx.javascript.object.*;
+import fxapp.MainFXApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import com.lynden.gmapsfx.javascript.event.UIEventHandler;
-import com.lynden.gmapsfx.javascript.event.UIEventType;
+import model.Report;
+import model.ReportList;
 import netscape.javascript.JSObject;
+
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 public class WaterAvailabilityScreenController implements Initializable, MapComponentInitializedListener {
 
@@ -61,16 +55,16 @@ public class WaterAvailabilityScreenController implements Initializable, MapComp
         for (int i = 0; i < reports.size(); i++) {
             Report report = reports.get(i);
             MarkerOptions option = new MarkerOptions();
-            option.label(report.getType())
+            option.label(report.getName())
                     .position(new LatLong(report.getX(), report.getY()))
                     .visible(true);
-            markerNames.add(report.getType());
+            markerNames.add(report.getName());
             Marker marker = new Marker(option);
             map.addUIEventHandler(marker, UIEventType.click, (JSObject obj) -> {
                 for (int j = 0; j < reports.size(); j++) {
                     Report rep = reports.get(j);
                     for (int k = 0; k < markerNames.size(); k++) {
-                        if (rep.getType().equals(markerNames.get(k))) {
+                        if (rep.getName().equals(markerNames.get(k))) {
                             app.setSelected(rep);
                             app.init(8);
                             return;

@@ -4,17 +4,14 @@ package controller;
  * Created by Brandon on 10/12/16.
  */
 
-import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
-import javafx.scene.control.Label;
-import javafx.scene.control.Button;
-
-import model.Report;
-import model.User;
-import model.ReportList;
 import fxapp.MainFXApplication;
-import java.util.ArrayList;
-import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import model.Report;
+import model.ReportList;
+import model.User;
 
 
 public class ReportListController {
@@ -31,6 +28,15 @@ public class ReportListController {
 
     @FXML
     private Button viewReport;
+
+    @FXML
+    private Button addPurity;
+
+    @FXML
+    private Button viewPurity;
+
+    @FXML
+    private Button viewHistoricalTrends;
 
     @FXML
     private Button addReport;
@@ -52,6 +58,12 @@ public class ReportListController {
      */
     public void loadUser(User user) {
         this.user = user;
+
+        if (this.user.getAccountType().equals("Worker") || this.user.getAccountType().equals("Manager")) {
+            addPurity.setDisable(false);
+            viewPurity.setDisable(false);
+            viewHistoricalTrends.setDisable(false);
+        }
     }
 
     /**

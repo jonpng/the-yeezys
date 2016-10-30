@@ -4,12 +4,11 @@ package controller;
  * Created by Brandon on 10/12/16.
  */
 
-import javafx.fxml.FXML;
 import fxapp.MainFXApplication;
+import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-
-import model.User;
 import model.Report;
+import model.User;
 
 public class ReportController {
 
@@ -62,8 +61,7 @@ public class ReportController {
         User reporter = selection.getReporter();
         String ns = selection.getNSDir();
         String ew = selection.getEWDir();
-        String type = selection.getType();
-        User verifier = selection.getVerifier();
+        String reportName = selection.getName();
         String condition = selection.getCondition();
         int num = selection.getNumber();
         double lat = Math.abs(selection.getX());
@@ -71,7 +69,7 @@ public class ReportController {
 
         number.setText(Integer.toString(num));
         date.setText(day);
-        srcName.setText(type);
+        srcName.setText(reportName);
         name.setText(reporter.getName());
         latitude.setText(Double.toString(lat));
         longitude.setText("\t" + Double.toString(lon));

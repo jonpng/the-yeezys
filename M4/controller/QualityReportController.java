@@ -6,12 +6,11 @@ package controller;
 
 import fxapp.MainFXApplication;
 import javafx.fxml.FXML;
-
 import javafx.scene.control.Label;
-import model.User;
 import model.Report;
+import model.User;
 
-public class ReportController2 {
+public class QualityReportController {
 
     private MainFXApplication screen;
     private Report selection;
@@ -62,8 +61,7 @@ public class ReportController2 {
         User reporter = selection.getReporter();
         String ns = selection.getNSDir();
         String ew = selection.getEWDir();
-        String type = selection.getType();
-        User verifier = selection.getVerifier();
+        String reportName = selection.getName();
         String condition = selection.getCondition();
         int num = selection.getNumber();
         double lat = Math.abs(selection.getX());
@@ -71,7 +69,7 @@ public class ReportController2 {
 
         number.setText(Integer.toString(num));
         date.setText(day);
-        srcName.setText(type);
+        srcName.setText(reportName);
         name.setText(reporter.getName());
         latitude.setText(Double.toString(lat));
         longitude.setText("\t" + Double.toString(lon));
