@@ -218,9 +218,7 @@ public class MainFXApplication extends Application {
 			stage.setScene(new Scene(layout));
 			stage.show();
 		} catch (Exception e) {
-			LOGGER.log(Level.SEVERE, "Error occurred");
-			e.printStackTrace();
-			System.exit(0);
+			handle(e);
 		}
 	}
 
@@ -316,6 +314,7 @@ public class MainFXApplication extends Application {
 			PurityReport pr = purityReportListControl.getSelection();
 			graphControl.loadReport(pr);
 
+			graphControl.draw();
 			stage.setScene(new Scene(layout));
 			stage.show();
 		} catch (Exception e) {
