@@ -61,7 +61,13 @@ public class MainScreenController {
     public void loadProfile() {
         String name = user.getName();
         String email = user.getEmail();
+        if (email == null) {
+            email = "N/A";
+        }
         String address = user.getAddress();
+        if (address == null) {
+            address = "N/A";
+        }
         String type = user.getAccountType();
 
         this.name.setText(name);
