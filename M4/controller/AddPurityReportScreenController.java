@@ -138,7 +138,7 @@ public class AddPurityReportScreenController {
 
         ReportList<PurityReport> purityReports = screen.getPurityReports();
         purityReports.add(report);
-        screen.init(4);
+        screen.init(11);
     }
 
     @FXML
@@ -146,7 +146,7 @@ public class AddPurityReportScreenController {
      * Action taken when user clicks the Cancel button.
      */
     private void handleCancel() {
-        screen.init(4);
+        screen.init(11);
     }
 
     @FXML

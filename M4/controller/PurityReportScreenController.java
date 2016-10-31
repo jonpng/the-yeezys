@@ -89,6 +89,6 @@ public class PurityReportScreenController {
      * Backs the user out of the report screen.
      */
     private void handleBack() {
-        screen.init(4);
+        screen.init(11);
     }
 }

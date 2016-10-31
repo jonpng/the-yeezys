@@ -43,4 +43,8 @@ public class PurityReport extends Report{
     public void setVirusPPM(double virusPPM) {
         this.virusPPM = virusPPM;
     }
+
+    public static int getReports() {
+        return reports;
+    }
 }

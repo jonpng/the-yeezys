@@ -9,19 +9,19 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import model.Report;
+import model.PurityReport;
 import model.ReportList;
 import model.User;
 
 
-public class ReportListScreenController {
+public class PurityReportListScreenController {
 
     private MainFXApplication screen;
-    private ReportList<Report> reports;
+    private ReportList<PurityReport> reports;
     private User user;
 
     @FXML
-    private ListView<Report> reportList;
+    private ListView<PurityReport> reportList;
 
     @FXML
     private Label noReports;
@@ -30,13 +30,7 @@ public class ReportListScreenController {
     private Button viewReport;
 
     @FXML
-    private Button addPurity;
-
-    @FXML
-    private Button viewPurity;
-
-    @FXML
-    private Button viewHistoricalTrends;
+    private Button viewHistory;
 
     @FXML
     private Button addReport;
@@ -55,22 +49,13 @@ public class ReportListScreenController {
      */
     public void loadUser(User user) {
         this.user = user;
-
-        if (this.user.getAccountType().equals("Worker") || this.user.getAccountType().equals("Manager")) {
-            addPurity.setDisable(false);
-        }
-
-        if (this.user.getAccountType().equals("Manager")) {
-            viewPurity.setDisable(false);
-            viewHistoricalTrends.setDisable(false);
-        }
     }
 
     /**
      * Loads reports that are currently in the report list.
      */
     public void loadReports() {
-        reports = screen.getReports();
+        reports = screen.getPurityReports();
         if (reports.size() != 0) {
             noReports.setVisible(false);
         }
@@ -85,7 +70,7 @@ public class ReportListScreenController {
         if (reportList.getItems().size() == 0 || reportList.getSelectionModel().getSelectedItem() == null) {
             return;
         }
-        screen.init(6);
+        screen.init(10);
     }
 
     @FXML
@@ -93,17 +78,7 @@ public class ReportListScreenController {
      * Loads the add report screen when user elects to add a report.
      */
     private void handleAddRep() {
-        screen.init(5);
-    }
-
-    @FXML
-    private void handleAddQualityRep() {
         screen.init(9);
-    }
-
-    @FXML
-    private void handleViewQualityRep() {
-        screen.init(11);
     }
 
     @FXML
@@ -116,22 +91,14 @@ public class ReportListScreenController {
      * Backs out of report screen when user hits the back button.
      */
     private void handleBack() {
-        screen.init(1);
-    }
-
-    @FXML
-    /**
-     * Loads the map.
-     */
-    private void handleMap() {
-        screen.init(7);
+        screen.init(4);
     }
 
     /**
      * Gets the selected report from the ListView.
      * @return Selected Report.
      */
-    public Report getSelection() {
+    public PurityReport getSelection() {
         return reportList.getSelectionModel().getSelectedItem();
     }
 }

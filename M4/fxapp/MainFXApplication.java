@@ -28,10 +28,11 @@ public class MainFXApplication extends Application {
 	private RegistrationScreenController regControl;
 	private EditProfileScreenController editControl;
 	private ReportListScreenController reportListControl;
+    private PurityReportListScreenController purityReportListControl;
 	private AddReportScreenController addReportControl;
 	private AddPurityReportScreenController addQualityReportControl;
 	private ReportScreenController repControl;
-	private ReportScreenController qualityRepControl;
+	private PurityReportScreenController qualityRepControl;
 	private PurityReportScreenController repControl2;
 	private WaterAvailabilityScreenController mapControl;
 	private Report selected;
@@ -157,6 +158,27 @@ public class MainFXApplication extends Application {
 		}
 	}
 
+    private void initPurityReportList(Stage stage) {
+        FXMLLoader loader = new FXMLLoader();
+        try {
+            loader.setLocation(this.getClass().getResource("../view/PurityReportListScreen.fxml"));
+            layout = loader.load();
+
+            purityReportListControl = loader.getController();
+            purityReportListControl.setMain(this);
+
+            purityReportListControl.loadReports();
+            purityReportListControl.loadUser(loginControl.getUser());
+            stage.setTitle("Water Conservation Report");
+            stage.setScene(new Scene(layout));
+            stage.show();
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "Error occurred");
+            e.printStackTrace();
+            System.exit(0);
+        }
+    }
+
     /**
      * Initializes and loads the add report screen.
      * @param stage loaded for user to interact with.
@@ -181,7 +203,7 @@ public class MainFXApplication extends Application {
 		}
 	}
 
-	private void initAddQuality(Stage stage) {
+	private void initAddPurity(Stage stage) {
 		FXMLLoader loader = new FXMLLoader();
 		try {
 			loader.setLocation(this.getClass().getResource("../view/AddPurityReportScreen.fxml"));
@@ -224,7 +246,7 @@ public class MainFXApplication extends Application {
 		}
 	}
 
-	private void initQualityRep(Stage stage) {
+	private void initPurityRep(Stage stage) {
 		FXMLLoader loader = new FXMLLoader();
 		try {
 			loader.setLocation(this.getClass().getResource("../view/PurityReportScreen.fxml"));
@@ -233,7 +255,7 @@ public class MainFXApplication extends Application {
 			qualityRepControl = loader.getController();
 			qualityRepControl.setMain(this);
 
-			qualityRepControl.loadReport(reportListControl.getSelection());
+			qualityRepControl.loadReport(purityReportListControl.getSelection());
 			stage.setTitle("Water Conservation Report");
 			stage.setScene(new Scene(layout));
 			stage.show();
@@ -313,10 +335,12 @@ public class MainFXApplication extends Application {
 		} else if (select == 8) {
 			initPin(stage);
 		} else if (select == 9) {
-			initAddQuality(stage);
+			initAddPurity(stage);
 		} else if (select == 10) {
-			initQualityRep(stage);
-		}
+			initPurityRep(stage);
+		} else if (select == 11) {
+            initPurityReportList(stage);
+        }
 	}
 
     /**
