@@ -8,7 +8,6 @@ import fxapp.MainFXApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import model.PurityReport;
-import model.User;
 
 public class PurityReportScreenController {
 
@@ -55,7 +54,7 @@ public class PurityReportScreenController {
         selection = report;
 
         String day = selection.getDate();
-        User reporter = selection.getReporter();
+        String reporter = selection.getReporter();
         String ns = selection.getNSDir();
         String ew = selection.getEWDir();
         String reportName = selection.getReportName();
@@ -69,7 +68,7 @@ public class PurityReportScreenController {
         number.setText(Integer.toString(num));
         date.setText(day);
         srcName.setText(reportName);
-        name.setText(reporter.getName());
+        name.setText(reporter);
         condition.setText(reportCondition);
         virusPPM.setText(new Double(selection.getVirusPPM()).toString());
         contaminantPPM.setText(new Double(selection.getContainmentPPM()).toString());

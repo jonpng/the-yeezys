@@ -8,7 +8,6 @@ import fxapp.MainFXApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import model.Report;
-import model.User;
 
 public class MapReportScreenController {
 
@@ -51,7 +50,7 @@ public class MapReportScreenController {
         selection = report;
 
         String day = selection.getDate();
-        User reporter = selection.getReporter();
+        String reporter = selection.getReporter();
         String ns = selection.getNSDir();
         String ew = selection.getEWDir();
         String reportName = selection.getReportName();
@@ -65,7 +64,7 @@ public class MapReportScreenController {
         number.setText(Integer.toString(num));
         date.setText(day);
         srcName.setText(reportName);
-        name.setText(reporter.getName());
+        name.setText(reporter);
         condition.setText(reportCondition);
         type.setText(selection.getType());
 
