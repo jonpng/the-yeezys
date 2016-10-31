@@ -35,6 +35,7 @@ public class MainFXApplication extends Application {
 	private PurityReportScreenController qualityRepControl;
 	private PurityReportScreenController repControl2;
 	private WaterAvailabilityScreenController mapControl;
+	private GraphScreenController graphControl;
 	private Report selected;
 
 	@Override
@@ -302,6 +303,25 @@ public class MainFXApplication extends Application {
 			handle(e);
 		}
 	}
+
+	private void initGraph(Stage stage) {
+		FXMLLoader loader = new FXMLLoader();
+		try {
+			loader.setLocation(this.getClass().getResource("../view/GraphScreen.fxml"));
+			layout = loader.load();
+
+			graphControl = loader.getController();
+			graphControl.setMain(this);
+
+			PurityReport pr = purityReportListControl.getSelection();
+			graphControl.loadReport(pr);
+
+			stage.setScene(new Scene(layout));
+			stage.show();
+		} catch (Exception e) {
+			handle(e);
+		}
+	}
 	/**
 	 * Handles exceptions
 	 * @param e An exception to be handled.
@@ -340,7 +360,9 @@ public class MainFXApplication extends Application {
 			initPurityRep(stage);
 		} else if (select == 11) {
             initPurityReportList(stage);
-        }
+        } else if (select == 12) {
+			initGraph(stage);
+		}
 	}
 
     /**
