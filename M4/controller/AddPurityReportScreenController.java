@@ -138,7 +138,12 @@ public class AddPurityReportScreenController {
 
         ReportList<PurityReport> purityReports = screen.getPurityReports();
         purityReports.add(report);
-        screen.init(11);
+
+        if (user.getAccountType().equals("Manager")) {
+            screen.init(11);
+        } else {
+            screen.init(4);
+        }
     }
 
     @FXML
