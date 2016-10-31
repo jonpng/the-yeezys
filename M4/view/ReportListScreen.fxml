@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReportListScreenController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReportListScreenController">
    <children>
       <Label layoutX="307.0" layoutY="2.0" text="Water Source Reports">
          <font>
@@ -29,7 +29,7 @@
                </font></Button>
             <Button fx:id="viewHistoricalTrends" disable="true" mnemonicParsing="false" onAction="#handleViewHistory" prefWidth="120.0" text="Historical Trends">
                <font>
-                  <Font size="13.0" />
+                  <Font size="12.0" />
                </font></Button>
          </children>
       </VBox>
@@ -39,17 +39,20 @@
                <children>
                   <Button fx:id="viewReport" mnemonicParsing="false" onAction="#handleViewRep" prefWidth="85.0" text="View Report">
                      <font>
-                        <Font size="10.0" />
+                        <Font size="12.0" />
                      </font></Button>
                   <Button fx:id="addReport" mnemonicParsing="false" onAction="#handleAddRep" prefWidth="85.0" text="Add Report">
                      <font>
-                        <Font size="10.0" />
+                        <Font size="12.0" />
                      </font></Button>
                   <Button fx:id="mapBtn" mnemonicParsing="false" onAction="#handleMap" prefWidth="85.0" text="Display Map">
                      <font>
-                        <Font size="10.0" />
+                        <Font size="12.0" />
                      </font></Button>
-                  <Button fx:id="back" mnemonicParsing="false" onAction="#handleBack" prefWidth="85.0" text="Back" />
+                  <Button fx:id="back" mnemonicParsing="false" onAction="#handleBack" prefWidth="85.0" text="Back">
+                     <font>
+                        <Font size="12.0" />
+                     </font></Button>
                </children>
             </HBox>
          </buttons>
