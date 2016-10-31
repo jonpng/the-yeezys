@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.QualityReportScreenController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PurityReportScreenController">
    <children>
       <Label fx:id="srcName" alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="50.0" prefWidth="400.0" text="Source Name" textAlignment="CENTER">
          <font>
@@ -80,17 +80,17 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="type" text="Virus PPM" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <Label fx:id="virusPPM" text="Virus PPM" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label text="Containment PPM:" GridPane.rowIndex="6">
+            <Label text="Contaminant PPM:" GridPane.rowIndex="6">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label text="Containment PPM" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <Label fx:id="contaminantPPM" text="Containment PPM" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <font>
                   <Font size="16.0" />
                </font>

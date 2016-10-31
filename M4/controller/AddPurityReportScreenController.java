@@ -7,13 +7,14 @@ package controller;
 import fxapp.MainFXApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import model.Report;
+import model.PurityReport;
 import model.ReportList;
 import model.User;
 
-public class AddQualityReportScreenController {
+public class AddPurityReportScreenController {
 
     private MainFXApplication screen;
     private User user;
@@ -38,6 +39,15 @@ public class AddQualityReportScreenController {
 
     @FXML
     private Button ewBtn;
+
+    @FXML
+    private TextField virusPPM;
+
+    @FXML
+    private TextField contaminantPPM;
+
+    @FXML
+    private ComboBox<String> srcCondition;
 
     /**
      * Sets the main app this controller pertains to.
@@ -92,17 +102,42 @@ public class AddQualityReportScreenController {
             return;
         }
 
+        double virusMeasure = 0;
+        try {
+            if (virusPPM.getCharacters().toString().isEmpty()) {
+                throw new IllegalArgumentException();
+            }
+
+            virusMeasure = Double.parseDouble(virusPPM.getCharacters().toString());
+        } catch (Exception e) {
+            errorMsg.setVisible(true);
+            return;
+        }
+
+        double contaminantMeasure = 0;
+        try {
+            if (contaminantPPM.getCharacters().toString().isEmpty()) {
+                throw new IllegalArgumentException();
+            }
+
+            contaminantMeasure = Double.parseDouble(contaminantPPM.getCharacters().toString());
+        } catch (Exception e) {
+            errorMsg.setVisible(true);
+            return;
+        }
+
         if (nsBtn.getText().equalsIgnoreCase("S")) {
             lat *= -1;
         }
         if (ewBtn.getText().equalsIgnoreCase("W")) {
             longi *= -1;
         }
-        Report report = new Report(lat, longi, name, null, user, nsBtn.getText(), ewBtn.getText(), "Placeholder");
-        report.setNumber(Report.getReports());
+        PurityReport report = new PurityReport(lat, longi, name, srcCondition.getValue(), user, nsBtn.getText(),
+                ewBtn.getText(), virusMeasure, contaminantMeasure);
+        report.setNumber(PurityReport.getReports());
 
-        ReportList<Report> reports = screen.getReports();
-        reports.add(report);
+        ReportList<PurityReport> purityReports = screen.getPurityReports();
+        purityReports.add(report);
         screen.init(4);
     }
 

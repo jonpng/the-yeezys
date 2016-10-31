@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
 import model.Report;
 import model.User;
 
-public class QualityReportScreenController {
+public class MapReportScreenController {
 
     private MainFXApplication screen;
     private Report selection;

@@ -41,9 +41,6 @@ public class ReportListScreenController {
     @FXML
     private Button addReport;
 
-    @FXML
-    private Button verifyReport;
-
     /**
      * Sets the main application using this instance of ReportListScreenController
      * @param screen application using the controller.
@@ -61,6 +58,9 @@ public class ReportListScreenController {
 
         if (this.user.getAccountType().equals("Worker") || this.user.getAccountType().equals("Manager")) {
             addPurity.setDisable(false);
+        }
+
+        if (this.user.getAccountType().equals("Manager")) {
             viewPurity.setDisable(false);
             viewHistoricalTrends.setDisable(false);
         }
@@ -97,11 +97,8 @@ public class ReportListScreenController {
     }
 
     @FXML
-    /**
-     * Loads the verify report screen when worker elects to verify report.
-     */
-    private void handleVerifyRep() {
-
+    private void handleAddQualityRep() {
+        screen.init(9);
     }
 
     @FXML

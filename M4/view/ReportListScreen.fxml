@@ -9,7 +9,7 @@
       <ListView fx:id="reportList" layoutX="135.0" layoutY="15.0" prefHeight="280.0" prefWidth="500.0" />
       <VBox alignment="TOP_CENTER" layoutX="8.0" layoutY="98.0" prefHeight="112.0" prefWidth="120.0" spacing="20.0">
          <children>
-            <Button fx:id="addPurity" disable="true" mnemonicParsing="false" prefWidth="120.0" text="Add Purity Report" />
+            <Button fx:id="addPurity" disable="true" mnemonicParsing="false" onAction="#handleAddQualityRep" prefWidth="120.0" text="Add Purity Report" />
             <Button fx:id="viewPurity" disable="true" mnemonicParsing="false" prefWidth="120.0" text="View Purity Reports" />
             <Button fx:id="viewHistoricalTrends" disable="true" mnemonicParsing="false" prefWidth="120.0" text="Historical Trends" />
          </children>

@@ -3,10 +3,10 @@ package model;
 /**
  * Created by Steve on 10/30/2016.
  */
-public class QualityReport extends Report{
+public class PurityReport extends Report{
     private static int reports = 0;
     private double virusPPM;
-    private double containmentPPM;
+    private double contaminantPPM;
 
     /**
      * Contructor for a Report.
@@ -19,23 +19,25 @@ public class QualityReport extends Report{
      * @param NSDir     Latitude direction
      * @param EWDir     Longitude direction.
      */
-    public QualityReport(double x, double y, String name, String condition, User reporter, String NSDir, String EWDir,
-                         double virusPPM, double containmentPPM) {
+    public PurityReport(double x, double y, String name, String condition, User reporter, String NSDir, String EWDir,
+                        double virusPPM, double contaminantPPM) {
         super(x, y, name, condition, reporter, NSDir, EWDir, null);
         this.virusPPM = virusPPM;
-        this.containmentPPM = containmentPPM;
+        this.contaminantPPM = contaminantPPM;
+
+        this.reports++;
     }
 
     public double getContainmentPPM() {
-        return containmentPPM;
+        return contaminantPPM;
     }
 
     public double getVirusPPM() {
         return virusPPM;
     }
 
-    public void setContainmentPPM(double containmentPPM) {
-        this.containmentPPM = containmentPPM;
+    public void setContainmentPPM(double contaminantPPM) {
+        this.contaminantPPM = contaminantPPM;
     }
 
     public void setVirusPPM(double virusPPM) {
