@@ -11,6 +11,9 @@ import model.Report;
 import model.ReportList;
 import model.User;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,6 +23,8 @@ public class MainFXApplication extends Application {
 	private static final Logger LOGGER = Logger.getLogger("fxapp.MainFXApplication");
 	private Stage stage;
 	private Pane layout;
+	private boolean reportLoaded = false;
+	private boolean purityLoaded = false;
 	private ArrayList<User> users = new ArrayList<User>();
 	private ReportList<Report> reports = new ReportList<Report>();
 	private ReportList<PurityReport> purityReports = new ReportList<PurityReport>();
@@ -37,11 +42,14 @@ public class MainFXApplication extends Application {
 	private WaterAvailabilityScreenController mapControl;
 	private GraphScreenController graphControl;
 	private Report selected;
+	private Connection connect;
+
 
 	@Override
-	public void start(Stage stage) {
+	public void start(Stage stage) throws SQLException {
 		this.stage = stage;
 		initLayout(this.stage);
+		connect = DriverManager.getConnection("jdbc:mysql://clean-water-project.cxabeuavtgvv.us-west-2.rds.amazonaws.com:3306/clean_water_project?", "sqluser", "sqluserpw");
 	}
 
 	/**
@@ -404,6 +412,22 @@ public class MainFXApplication extends Application {
 		return purityReports;
 	}
 
+	public boolean isReportLoaded() {
+		return reportLoaded;
+	}
+
+	public boolean isPurityLoaded() {
+		return purityLoaded;
+	}
+
+	public void setReportLoaded() {
+		reportLoaded = true;
+	}
+
+	public void setPurityLoaded() {
+		purityLoaded = true;
+	}
+
     /**
      * Checks entered credentials, and logs user in if applicable.
      * @param username username entered by the user.
@@ -417,6 +441,10 @@ public class MainFXApplication extends Application {
 			}
 		}
 		return null;
+	}
+
+	public Connection getConnection() {
+		return connect;
 	}
 
 	public void setSelected(Report report) {

@@ -1,7 +1,11 @@
 package model;
 
-import java.sql.*;
-import java.util.ArrayList;
+import fxapp.MainFXApplication;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.util.NoSuchElementException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -12,13 +16,11 @@ import java.util.logging.Logger;
 public class PersistenceManager {
     private static final Logger LOGGER = Logger.getLogger("fxapp.MainFXApplication");
 
-    public static void insertUser(String user, int pass, String name, String accountType) {
-        Connection connect;
+    public static void insertUser(String user, int pass, String name, String accountType, Connection connect) {
         PreparedStatement preStatement;
         ResultSet resultSet = null;
 
         try {
-            connect = DriverManager.getConnection("jdbc:mysql://clean-water-project.cxabeuavtgvv.us-west-2.rds.amazonaws.com:3306/clean_water_project?", "sqluser", "sqluserpw");
 
             preStatement = connect.prepareStatement("select * from users where Username=?");
             preStatement.setString(1, user);
@@ -53,13 +55,11 @@ public class PersistenceManager {
         }
     }
 
-    public static User accessUser(String user, int pass) {
-        Connection connect;
+    public static User accessUser(String user, int pass, Connection connect) {
         PreparedStatement preStatement;
         ResultSet resultSet = null;
 
         try {
-            connect = DriverManager.getConnection("jdbc:mysql://clean-water-project.cxabeuavtgvv.us-west-2.rds.amazonaws.com:3306/clean_water_project?", "sqluser", "sqluserpw");
 
             preStatement = connect.prepareStatement("select * from users where Username=? and Password=?");
             preStatement.setString(1, user);
@@ -94,12 +94,10 @@ public class PersistenceManager {
         }
     }
 
-    public static void updateUser(String username, int oldPass, String name, int newPass, String addr, String email) {
-        Connection connect;
+    public static void updateUser(String username, int oldPass, String name, int newPass, String addr, String email, Connection connect) {
         PreparedStatement preStatement;
 
         try {
-            connect = DriverManager.getConnection("jdbc:mysql://clean-water-project.cxabeuavtgvv.us-west-2.rds.amazonaws.com:3306/clean_water_project?", "sqluser", "sqluserpw");
 
             preStatement = connect.prepareStatement("UPDATE users SET Name=?, Password=?, Address=?, Email=? WHERE Username=? and Password=?");
 
@@ -119,12 +117,11 @@ public class PersistenceManager {
         }
     }
 
-    public static void insertReport(int id, double xCoord, double yCoord, Timestamp date, String reporter, String srcName, String srcCondition, String srcType, String NSDir, String EWDir) {
-        Connection connect;
+    public static void insertReport(int id, double xCoord, double yCoord, Timestamp date, String reporter,
+                                    String srcName, String srcCondition, String srcType, String NSDir, String EWDir, Connection connect) {
         PreparedStatement preStatement;
 
         try {
-            connect = DriverManager.getConnection("jdbc:mysql://clean-water-project.cxabeuavtgvv.us-west-2.rds.amazonaws.com:3306/clean_water_project?", "sqluser", "sqluserpw");
 
             preStatement = connect.prepareStatement("INSERT INTO reports(id, xCoord, yCoord, date, reporter, srcName, srcCondition, srcType, NSDir, EWDir) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
@@ -148,16 +145,12 @@ public class PersistenceManager {
         }
     }
 
-    public static ArrayList<Report> accessReports() {
-        Connection connect;
+    public static void accessReports(MainFXApplication screen, Connection connect) {
         PreparedStatement preStatement;
         ResultSet resultSet = null;
-
-        ArrayList<Report> reports = new ArrayList<Report>();
+        ReportList<Report> reports = screen.getReports();
 
         try {
-            connect = DriverManager.getConnection("jdbc:mysql://clean-water-project.cxabeuavtgvv.us-west-2.rds.amazonaws.com:3306/clean_water_project?", "sqluser", "sqluserpw");
-
             preStatement = connect.prepareStatement("select * from reports");
             resultSet = preStatement.executeQuery();
 
@@ -167,8 +160,6 @@ public class PersistenceManager {
                         resultSet.getString("reporter"), resultSet.getString("NSDir"), resultSet.getString("EWDir"),
                         resultSet.getString("srcType")));
             }
-
-            return reports;
 
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Error occurred");

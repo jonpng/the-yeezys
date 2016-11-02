@@ -56,19 +56,8 @@ public class RegistrationScreenController {
             return;
         }
 
-        /*ArrayList<User> users = screen.getUsers();
-        for (int i = 0; i < users.size(); i++) {
-            if (users.get(i).getUsername().equals(username)) {
-                regError.setText("Username Unavailable");
-                regError.setVisible(true);
-                return;
-            }
-        }
-
-        User user = new User(name, username, password.hashCode(), account);*/
-
         try {
-            PersistenceManager.insertUser(username, password.hashCode(), name, account);
+            PersistenceManager.insertUser(username, password.hashCode(), name, account, screen.getConnection());
         } catch (IllegalArgumentException e) {
             regError.setText("Username Unavailable");
             regError.setVisible(true);
@@ -80,7 +69,6 @@ public class RegistrationScreenController {
             return;
         }
 
-        //screen.addUser(user);
         screen.init(0);
     }
 

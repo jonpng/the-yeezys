@@ -73,7 +73,7 @@ public class LoginScreenController {
 
         //Persistence code can only be used once the sql server is being hosted online
         try {
-            user = PersistenceManager.accessUser(username, password.hashCode());
+            user = PersistenceManager.accessUser(username, password.hashCode(), screen.getConnection());
 
             if (user != null) {
                 screen.init(1);

@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import model.PersistenceManager;
 import model.Report;
 import model.ReportList;
 import model.User;
@@ -70,6 +71,11 @@ public class ReportListScreenController {
      * Loads reports that are currently in the report list.
      */
     public void loadReports() {
+        if (!screen.isReportLoaded()) {
+            PersistenceManager.accessReports(screen, screen.getConnection());
+            screen.setReportLoaded();
+        }
+
         reports = screen.getReports();
         if (reports.size() != 0) {
             noReports.setVisible(false);

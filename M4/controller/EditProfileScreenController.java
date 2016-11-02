@@ -76,7 +76,8 @@ public class EditProfileScreenController {
             email = user.getEmail();
         }
 
-        PersistenceManager.updateUser(user.getUsername(), oldPass, name, updatePass, addr, email);
+        PersistenceManager.updateUser(user.getUsername(), oldPass, name, updatePass, addr, email,
+                screen.getConnection());
         screen.init(1);
     }
 
