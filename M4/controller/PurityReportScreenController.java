@@ -81,6 +81,8 @@ public class PurityReportScreenController {
         condition.setVisible(true);
         virusPPM.setVisible(true);
         contaminantPPM.setVisible(true);
+
+        selection.addDate();
     }
 
     @FXML

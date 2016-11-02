@@ -14,7 +14,7 @@
    <children>
       <LineChart fx:id="graph" layoutX="122.0" layoutY="65.0" prefHeight="306.0" prefWidth="428.0">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <CategoryAxis side="BOTTOM"  />
         </xAxis>
         <yAxis>
           <NumberAxis side="LEFT" />
