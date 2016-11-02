@@ -3,9 +3,10 @@ package model;
 /**
  * Created by Steve on 10/30/2016.
  */
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.text.SimpleDateFormat;
 
 public class PurityReport extends Report{
     private static int reports = 0;
@@ -14,7 +15,7 @@ public class PurityReport extends Report{
     private ArrayList<String> dates;
     private ArrayList<Double> contaminants;
     private String date;
-    private int number
+    private int number;
 
     /**
      * Contructor for a Report.
