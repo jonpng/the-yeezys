@@ -132,9 +132,8 @@ public class AddPurityReportScreenController {
         if (ewBtn.getText().equalsIgnoreCase("W")) {
             longi *= -1;
         }
-        PurityReport report = new PurityReport(lat, longi, name, srcCondition.getValue(), user, nsBtn.getText(),
-                ewBtn.getText(), virusMeasure, contaminantMeasure);
-        report.setNumber(PurityReport.getReports());
+        PurityReport report = new PurityReport(lat, longi, name, srcCondition.getValue(), user.getUsername(),
+                nsBtn.getText(), ewBtn.getText(), virusMeasure, contaminantMeasure);
 
         ReportList<PurityReport> purityReports = screen.getPurityReports();
         purityReports.add(report);

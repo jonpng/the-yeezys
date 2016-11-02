@@ -110,8 +110,7 @@ public class AddReportScreenController {
         String type = srcType.getValue();
         String condition = srcCondition.getValue();
 
-        Report report = new Report(lat, longi, name, condition, user, nsBtn.getText(), ewBtn.getText(), type);
-        report.setNumber(Report.getReports());
+        Report report = new Report(lat, longi, name, condition, user.getUsername(), nsBtn.getText(), ewBtn.getText(), type);
 
         ReportList<Report> reports = screen.getReports();
         reports.add(report);

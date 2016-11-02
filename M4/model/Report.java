@@ -27,13 +27,13 @@ public class Report {
      * @param NSDir Latitude direction
      * @param EWDir Longitude direction.
      */
-    public Report(double x, double y, String name, String condition, User reporter, String NSDir, String EWDir,
+    public Report(double x, double y, String name, String condition, String reporter, String NSDir, String EWDir,
                   String type) {
         //TODO: autogenerate number
         xCoordinate = x;
         yCoordinate = y;
         submitted = new Date();
-        this.reporter = reporter.getUsername();//TODO: autogenerate
+        this.reporter = reporter;
         this.reportName = name;
         this.condition = condition;
         this.NSDir = NSDir;
@@ -43,6 +43,8 @@ public class Report {
         if (this.type != null) {
             reports++;
         }
+
+        this.number = this.reports;
     }
 
     /**
@@ -90,7 +92,7 @@ public class Report {
      * @return date of submission
      */
     public String getDate() {
-        return new SimpleDateFormat("yyyy.MM.dd.HH.mm").format(submitted);
+        return new SimpleDateFormat("yyyy-MM-dd HH:mm").format(submitted);
     }
 
     /**

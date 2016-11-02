@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,7 +14,6 @@ public class PersistenceManager {
 
     public static void insertUser(String user, int pass, String name, String accountType) {
         Connection connect;
-        Statement statement;
         PreparedStatement preStatement;
         ResultSet resultSet = null;
 
@@ -55,7 +55,6 @@ public class PersistenceManager {
 
     public static User accessUser(String user, int pass) {
         Connection connect;
-        Statement statement;
         PreparedStatement preStatement;
         ResultSet resultSet = null;
 
@@ -96,15 +95,11 @@ public class PersistenceManager {
     }
 
     public static void updateUser(String username, int oldPass, String name, int newPass, String addr, String email) {
-
         Connection connect;
-        Statement statement;
         PreparedStatement preStatement;
-        ResultSet resultSet;
 
         try {
             connect = DriverManager.getConnection("jdbc:mysql://clean-water-project.cxabeuavtgvv.us-west-2.rds.amazonaws.com:3306/clean_water_project?", "sqluser", "sqluserpw");
-            //statement = connect.createStatement();
 
             preStatement = connect.prepareStatement("UPDATE users SET Name=?, Password=?, Address=?, Email=? WHERE Username=? and Password=?");
 
@@ -123,4 +118,71 @@ public class PersistenceManager {
             throw new RuntimeException();
         }
     }
+
+    public static void insertReport(int id, double xCoord, double yCoord, Timestamp date, String reporter, String srcName, String srcCondition, String srcType, String NSDir, String EWDir) {
+        Connection connect;
+        PreparedStatement preStatement;
+
+        try {
+            connect = DriverManager.getConnection("jdbc:mysql://clean-water-project.cxabeuavtgvv.us-west-2.rds.amazonaws.com:3306/clean_water_project?", "sqluser", "sqluserpw");
+
+            preStatement = connect.prepareStatement("INSERT INTO reports(id, xCoord, yCoord, date, reporter, srcName, srcCondition, srcType, NSDir, EWDir) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+            preStatement.setInt(1, id);
+            preStatement.setDouble(2, xCoord);
+            preStatement.setDouble(3, yCoord);
+            preStatement.setTimestamp(4, date);
+            preStatement.setString(5, reporter);
+            preStatement.setString(6, srcName);
+            preStatement.setString(7, srcCondition);
+            preStatement.setString(8, srcType);
+            preStatement.setString(9, NSDir);
+            preStatement.setString(10, EWDir);
+
+            preStatement.execute();
+
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static ArrayList<Report> accessReports() {
+        Connection connect;
+        PreparedStatement preStatement;
+        ResultSet resultSet = null;
+
+        ArrayList<Report> reports = new ArrayList<Report>();
+
+        try {
+            connect = DriverManager.getConnection("jdbc:mysql://clean-water-project.cxabeuavtgvv.us-west-2.rds.amazonaws.com:3306/clean_water_project?", "sqluser", "sqluserpw");
+
+            preStatement = connect.prepareStatement("select * from reports");
+            resultSet = preStatement.executeQuery();
+
+            while(resultSet.next()) {
+                reports.add(new Report(resultSet.getDouble("xCoord"), resultSet.getDouble("yCoord"),
+                        resultSet.getString("srcName"), resultSet.getString("srcCondition"),
+                        resultSet.getString("reporter"), resultSet.getString("NSDir"), resultSet.getString("EWDir"),
+                        resultSet.getString("srcType")));
+            }
+
+            return reports;
+
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "Error occurred");
+            e.printStackTrace();
+            throw new RuntimeException();
+        } finally {
+            try {
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
+
