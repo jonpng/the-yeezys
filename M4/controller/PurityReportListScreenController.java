@@ -89,9 +89,7 @@ public class PurityReportListScreenController {
 
     @FXML
     private void handleViewHistory() {
-        if (getSelection() != null) {
-            screen.init(12);
-        }
+            screen.init(13);
     }
 
     @FXML

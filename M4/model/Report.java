@@ -106,6 +106,10 @@ public class Report {
         return new Timestamp(submitted.getTime());
     }
 
+    public Date date() {
+        return submitted;
+    }
+
     /**
      * Gets the reporter who submitted the report.
      * @return reporter of report

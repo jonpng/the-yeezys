@@ -41,6 +41,7 @@ public class MainFXApplication extends Application {
 	private PurityReportScreenController repControl2;
 	private WaterAvailabilityScreenController mapControl;
 	private GraphScreenController graphControl;
+	private HistoricalReportSelectController historyControl;
 	private Report selected;
 	private Connection connect;
 
@@ -319,7 +320,7 @@ public class MainFXApplication extends Application {
 			graphControl = loader.getController();
 			graphControl.setMain(this);
 
-			PurityReport pr = purityReportListControl.getSelection();
+			PurityReport pr = historyControl.getPReport();
 			graphControl.loadReport(pr);
 
 			graphControl.draw();
@@ -329,6 +330,23 @@ public class MainFXApplication extends Application {
 			handle(e);
 		}
 	}
+
+	private void initHistorySel(Stage stage) {
+		FXMLLoader loader = new FXMLLoader();
+		try {
+			loader.setLocation(this.getClass().getResource("../view/HistoricalReportSelectScreen.fxml"));
+			layout = loader.load();
+
+			historyControl = loader.getController();
+			historyControl.setMain(this);
+
+			stage.setScene(new Scene(layout));
+			stage.show();
+		} catch (Exception e) {
+			handle(e);
+		}
+	}
+
 	/**
 	 * Handles exceptions
 	 * @param e An exception to be handled.
@@ -369,6 +387,8 @@ public class MainFXApplication extends Application {
             initPurityReportList(stage);
         } else if (select == 12) {
 			initGraph(stage);
+		} else if (select == 13) {
+			initHistorySel(stage);
 		}
 	}
 
