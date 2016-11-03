@@ -14,6 +14,7 @@ public class PurityReport extends Report{
     private double contaminantPPM;
     private ArrayList<String> dates;
     private ArrayList<Double> contaminants;
+    private ArrayList<Double> viruses;
     private String date;
     private int number;
 
@@ -33,6 +34,13 @@ public class PurityReport extends Report{
         super(x, y, name, condition, reporter, NSDir, EWDir, null);
         this.virusPPM = virusPPM;
         this.contaminantPPM = contaminantPPM;
+        contaminants = new ArrayList<Double>();
+        contaminants.add(contaminantPPM);
+
+        viruses = new ArrayList<Double>();
+        viruses.add(virusPPM);
+
+        dates = new ArrayList<String>();
 
         this.reports++;
         this.number = this.reports;
@@ -65,5 +73,22 @@ public class PurityReport extends Report{
 
     public void addDate() {
         dates.add(new SimpleDateFormat("yyyy.MM.dd.HH.mm").format(new Date()));
+    }
+
+    public ArrayList<String> getDates() {
+        return dates;
+    }
+
+    public ArrayList<Double> getContaminants() {
+        return contaminants;
+    }
+
+    public ArrayList<Double> getViruses() {
+        return viruses;
+    }
+
+    public String year() {
+        String year = super.date().toString();
+        return year.substring(year.length()-4);
     }
 }

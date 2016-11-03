@@ -95,6 +95,10 @@ public class Report {
         return new SimpleDateFormat("yyyy-MM-dd HH:mm").format(submitted);
     }
 
+    public Date date() {
+        return submitted;
+    }
+
     /**
      * Gets the reporter who submitted the report.
      * @return reporter of report
