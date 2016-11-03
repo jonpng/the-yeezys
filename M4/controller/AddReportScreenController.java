@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import model.PersistenceManager;
 import model.Report;
 import model.ReportList;
 import model.User;
@@ -110,7 +111,12 @@ public class AddReportScreenController {
         String type = srcType.getValue();
         String condition = srcCondition.getValue();
 
-        Report report = new Report(lat, longi, name, condition, user.getUsername(), nsBtn.getText(), ewBtn.getText(), type);
+        Report report = new Report(lat, longi, name, condition, user.getUsername(), nsBtn.getText(), ewBtn.getText(),
+                type);
+
+        PersistenceManager.insertReport(report.getNumber(), report.getX(), report.getY(), report.getTimestamp(),
+                report.getReporter(), report.getReportName(), report.getCondition(), report.getType(),
+                report.getNSDir(), report.getEWDir(), screen.getConnection());
 
         ReportList<Report> reports = screen.getReports();
         reports.add(report);

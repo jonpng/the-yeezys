@@ -43,7 +43,9 @@ public class PersistenceManager {
         } catch (IllegalArgumentException e){
             throw new IllegalArgumentException();
         } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "SQL Error occurred");
             e.printStackTrace();
+            return;
         } finally {
             try {
                 if (resultSet != null) {
@@ -51,6 +53,7 @@ public class PersistenceManager {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
+                return;
             }
         }
     }
@@ -82,14 +85,16 @@ public class PersistenceManager {
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Error occurred");
             e.printStackTrace();
-            throw new RuntimeException();
+            return null;
         } finally {
             try {
                 if (resultSet != null) {
                     resultSet.close();
                 }
             } catch (Exception e) {
+                LOGGER.log(Level.SEVERE, "SQL Error occurred");
                 e.printStackTrace();
+                return null;
             }
         }
     }
@@ -111,9 +116,9 @@ public class PersistenceManager {
             preStatement.executeUpdate();
 
         } catch (Exception e) {
-            LOGGER.log(Level.SEVERE, "Error occurred");
+            LOGGER.log(Level.SEVERE, "SQL Error occurred");
             e.printStackTrace();
-            throw new RuntimeException();
+            return;
         }
     }
 
@@ -138,10 +143,39 @@ public class PersistenceManager {
 
             preStatement.execute();
 
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException();
-        } catch (Exception e) {
+        }   catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "SQL Error occurred");
             e.printStackTrace();
+            return;
+        }
+    }
+
+    public static void insertPurityReport(int id, double xCoord, double yCoord, Timestamp date, String reporter,
+                                    String srcName, String srcCondition, double virusPPM, double contaminantPPM, String NSDir, String EWDir, Connection connect) {
+        PreparedStatement preStatement;
+
+        try {
+
+            preStatement = connect.prepareStatement("INSERT INTO purity_reports(id, xCoord, yCoord, date, reporter, srcName, srcCondition, virusPPM, contPPM, NSDir, EWDir) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+            preStatement.setInt(1, id);
+            preStatement.setDouble(2, xCoord);
+            preStatement.setDouble(3, yCoord);
+            preStatement.setTimestamp(4, date);
+            preStatement.setString(5, reporter);
+            preStatement.setString(6, srcName);
+            preStatement.setString(7, srcCondition);
+            preStatement.setDouble(8, virusPPM);
+            preStatement.setDouble(9, contaminantPPM);
+            preStatement.setString(10, NSDir);
+            preStatement.setString(11, EWDir);
+
+            preStatement.execute();
+
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "SQL Error occurred");
+            e.printStackTrace();
+            return;
         }
     }
 
@@ -158,13 +192,44 @@ public class PersistenceManager {
                 reports.add(new Report(resultSet.getDouble("xCoord"), resultSet.getDouble("yCoord"),
                         resultSet.getString("srcName"), resultSet.getString("srcCondition"),
                         resultSet.getString("reporter"), resultSet.getString("NSDir"), resultSet.getString("EWDir"),
-                        resultSet.getString("srcType")));
+                        resultSet.getString("srcType"), resultSet.getTimestamp("date")));
             }
 
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Error occurred");
             e.printStackTrace();
-            throw new RuntimeException();
+            return;
+        } finally {
+            try {
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void accessPurityReports(MainFXApplication screen, Connection connect) {
+        PreparedStatement preStatement;
+        ResultSet resultSet = null;
+        ReportList<PurityReport> reports = screen.getPurityReports();
+
+        try {
+            preStatement = connect.prepareStatement("select * from purity_reports");
+            resultSet = preStatement.executeQuery();
+
+            while(resultSet.next()) {
+                reports.add(new PurityReport(resultSet.getDouble("xCoord"), resultSet.getDouble("yCoord"),
+                        resultSet.getString("srcName"), resultSet.getString("srcCondition"),
+                        resultSet.getString("reporter"), resultSet.getString("NSDir"), resultSet.getString("EWDir"),
+                        resultSet.getDouble("virusPPM"), resultSet.getDouble("contPPM"), resultSet.getTimestamp("date")));
+            }
+
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "Error occurred");
+            e.printStackTrace();
+            return;
         } finally {
             try {
                 if (resultSet != null) {

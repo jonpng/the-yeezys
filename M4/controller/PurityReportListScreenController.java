@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import model.PersistenceManager;
 import model.PurityReport;
 import model.ReportList;
 import model.User;
@@ -55,6 +56,11 @@ public class PurityReportListScreenController {
      * Loads reports that are currently in the report list.
      */
     public void loadReports() {
+        if (!screen.isPurityLoaded()) {
+            PersistenceManager.accessPurityReports(screen, screen.getConnection());
+            screen.setPurityLoaded();
+        }
+
         reports = screen.getPurityReports();
         if (reports.size() != 0) {
             noReports.setVisible(false);

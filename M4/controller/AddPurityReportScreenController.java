@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import model.PersistenceManager;
 import model.PurityReport;
 import model.ReportList;
 import model.User;
@@ -135,6 +136,10 @@ public class AddPurityReportScreenController {
         PurityReport report = new PurityReport(lat, longi, name, srcCondition.getValue(), user.getUsername(),
                 nsBtn.getText(), ewBtn.getText(), virusMeasure, contaminantMeasure);
 
+        PersistenceManager.insertPurityReport(report.getNumber(), report.getX(), report.getY(), report.getTimestamp(),
+                report.getReporter(), report.getReportName(), report.getCondition(), report.getVirusPPM(),
+                report.getContainmentPPM(), report.getNSDir(), report.getEWDir(), screen.getConnection());
+
         ReportList<PurityReport> purityReports = screen.getPurityReports();
         purityReports.add(report);
 
@@ -150,7 +155,11 @@ public class AddPurityReportScreenController {
      * Action taken when user clicks the Cancel button.
      */
     private void handleCancel() {
-        screen.init(11);
+        if (user.getAccountType().equals("Manager")) {
+            screen.init(11);
+        } else {
+            screen.init(4);
+        }
     }
 
     @FXML

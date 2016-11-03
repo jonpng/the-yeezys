@@ -1,5 +1,6 @@
 package model;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -29,7 +30,6 @@ public class Report {
      */
     public Report(double x, double y, String name, String condition, String reporter, String NSDir, String EWDir,
                   String type) {
-        //TODO: autogenerate number
         xCoordinate = x;
         yCoordinate = y;
         submitted = new Date();
@@ -45,6 +45,13 @@ public class Report {
         }
 
         this.number = this.reports;
+    }
+
+    public Report(double x, double y, String name, String condition, String reporter, String NSDir, String EWDir,
+                  String type, Timestamp date) {
+        this(x, y, name, condition, reporter, NSDir, EWDir, type);
+
+        submitted = new Date(date.getTime());
     }
 
     /**
@@ -93,6 +100,10 @@ public class Report {
      */
     public String getDate() {
         return new SimpleDateFormat("yyyy-MM-dd HH:mm").format(submitted);
+    }
+
+    public Timestamp getTimestamp() {
+        return new Timestamp(submitted.getTime());
     }
 
     /**

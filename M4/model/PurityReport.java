@@ -4,6 +4,7 @@ package model;
  * Created by Steve on 10/30/2016.
  */
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,6 +15,7 @@ public class PurityReport extends Report{
     private double contaminantPPM;
     private ArrayList<String> dates;
     private ArrayList<Double> contaminants;
+    private Date submitted;
     private String date;
     private int number;
 
@@ -36,6 +38,15 @@ public class PurityReport extends Report{
 
         this.reports++;
         this.number = this.reports;
+        submitted = new Date();
+        dates = new ArrayList<String>();
+    }
+
+    public PurityReport(double x, double y, String name, String condition, String reporter, String NSDir, String EWDir,
+                        double virusPPM, double contaminantPPM, Timestamp date) {
+        this(x, y, name, condition, reporter, NSDir, EWDir, virusPPM, contaminantPPM);
+
+        this.submitted = new Date(date.getTime());
     }
 
     public int getNumber() {
@@ -48,6 +59,10 @@ public class PurityReport extends Report{
 
     public double getVirusPPM() {
         return virusPPM;
+    }
+
+    public String getDate() {
+        return new SimpleDateFormat("yyyy-MM-dd HH:mm").format(submitted);
     }
 
     public void setContainmentPPM(double contaminantPPM) {
