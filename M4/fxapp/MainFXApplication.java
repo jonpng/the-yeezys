@@ -38,7 +38,6 @@ public class MainFXApplication extends Application {
 	private AddPurityReportScreenController addQualityReportControl;
 	private ReportScreenController repControl;
 	private PurityReportScreenController qualityRepControl;
-	private PurityReportScreenController repControl2;
 	private WaterAvailabilityScreenController mapControl;
 	private GraphScreenController graphControl;
 	private HistoricalReportSelectController historyControl;
@@ -63,7 +62,6 @@ public class MainFXApplication extends Application {
 			loader.setLocation(this.getClass().getResource("../view/LoginScreen.fxml"));
 			layout = loader.load();
 
-			LoginScreenController control;
 			loginControl = loader.getController();
 			loginControl.setMain(this);
 			stage.setTitle("Water Conservation Report");
@@ -85,7 +83,6 @@ public class MainFXApplication extends Application {
 			loader.setLocation(this.getClass().getResource("../view/MainScreen.fxml"));
 			layout = loader.load();
 
-			MainScreenController control;
 			mainControl = loader.getController();
 			mainControl.setMain(this);
 			mainControl.loadUser(loginControl.getUser());
@@ -109,7 +106,6 @@ public class MainFXApplication extends Application {
 			loader.setLocation(this.getClass().getResource("../view/RegistrationScreen.fxml"));
 			layout = loader.load();
 
-			RegistrationScreenController control;
 			regControl = loader.getController();
 			regControl.setMain(this);
 			stage.setTitle("Water Conservation Report");

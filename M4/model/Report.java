@@ -19,7 +19,7 @@ public class Report {
     private String EWDir;
 
     /**
-     * Contructor for a Report.
+     * Constructor for a Report.
      * @param x Latitude coordinate
      * @param y Longitude coordinate
      * @param name Name of Report
@@ -80,7 +80,7 @@ public class Report {
 
     /**
      * Sets longitude coordinate
-     * @param y longitude coordate
+     * @param y longitude coordinate
      */
     public void setY(double y) {
         this.yCoordinate = y;

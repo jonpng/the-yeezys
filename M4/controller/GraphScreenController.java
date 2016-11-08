@@ -19,9 +19,6 @@ public class GraphScreenController {
     @FXML
     private LineChart graph;
 
-    private Axis<Date> x;
-    private Axis<Double> y;
-
     private MainFXApplication screen;
     private PurityReport report;
 
@@ -50,10 +47,8 @@ public class GraphScreenController {
     /**
      * Draws the graph.
      */
+    @SuppressWarnings("unchecked")
     public void draw() {
-        x = graph.getXAxis();
-        y = graph.getYAxis();
-
         PointList<String> dateList = new PointList<String>();
         PointList<Double> dataList = new PointList<Double>();
         PointList<Data<String, Double>> points = new PointList<Data<String, Double>>();
@@ -71,6 +66,7 @@ public class GraphScreenController {
         PointList<Series<String, Double>> pointList = new PointList<Series<String, Double>>();
         pointList.add(series);
 
+        //noinspection unchecked,unchecked
         graph.setData(pointList);
     }
 }

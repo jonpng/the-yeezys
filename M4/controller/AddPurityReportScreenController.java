@@ -24,16 +24,16 @@ public class AddPurityReportScreenController {
     private TextField srcName;
 
     @FXML
-    private TextField latCoor;
+    private TextField latCoord;
 
     @FXML
-    private TextField longCoor;
+    private TextField longCoord;
 
     @FXML
     private Label errorMsg;
 
     @FXML
-    private Label coorErr;
+    private Label coordErr;
 
     @FXML
     private Button nsBtn;
@@ -71,29 +71,29 @@ public class AddPurityReportScreenController {
      * Action taken when user clicks the Add Button
      */
     private void handleAdd() {
-        String latitude = latCoor.getCharacters().toString();
+        String latitude = latCoord.getCharacters().toString();
         double lat = 0;
         try {
             lat = Double.parseDouble(latitude);
             if (lat > 180) {
-                coorErr.setVisible(true);
+                coordErr.setVisible(true);
                 return;
             }
         } catch (Exception e) {
-            coorErr.setVisible(true);
+            coordErr.setVisible(true);
             return;
         }
 
-        String longitude = longCoor.getCharacters().toString();
+        String longitude = longCoord.getCharacters().toString();
         double longi = 0;
         try {
             longi = Double.parseDouble(longitude);
             if (longi > 180) {
-                coorErr.setVisible(true);
+                coordErr.setVisible(true);
                 return;
             }
         } catch (Exception e) {
-            coorErr.setVisible(true);
+            coordErr.setVisible(true);
             return;
         }
 

@@ -48,7 +48,6 @@ public class RegistrationScreenController {
         String name = nameReg.getCharacters().toString();
         String password = passReg.getCharacters().toString();
         String account = (String)acctType.getValue();
-        User user;
 
         if (username.equals("") || password.equals("") || name.equals("") || account == null) {
             regError.setText("Invalid Entry");

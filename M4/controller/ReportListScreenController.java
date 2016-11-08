@@ -113,11 +113,6 @@ public class ReportListScreenController {
     }
 
     @FXML
-    private void handleViewHistory() {
-        //placeholder
-    }
-
-    @FXML
     /**
      * Backs out of report screen when user hits the back button.
      */

@@ -83,7 +83,7 @@ public class EditProfileScreenController {
 
     @FXML
     /**
-     * Action taken when user clicks the Cancel buttom
+     * Action taken when user clicks the Cancel button
      */
     private void handleCancel() {
         screen.init(1);

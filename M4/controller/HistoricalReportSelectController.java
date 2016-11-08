@@ -11,9 +11,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 
-import java.util.ArrayList;
-import java.util.GregorianCalendar;
-import java.util.Calendar;
 
 public class HistoricalReportSelectController {
 
@@ -77,8 +74,7 @@ public class HistoricalReportSelectController {
     public void loadReport() {
         loadReports();
         String name = reportField.getText();
-        PurityReport pr = searchReports(name);
-        report = pr;
+        report = searchReports(name);
     }
 
     public PurityReport getPReport() {

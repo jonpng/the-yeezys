@@ -17,11 +17,10 @@ public class PurityReport extends Report{
     private ArrayList<Double> contaminants;
     private ArrayList<Double> viruses;
     private Date submitted;
-    private String date;
     private int number;
 
     /**
-     * Contructor for a Report.
+     * Constructor for a Report.
      *
      * @param x         Latitude coordinate
      * @param y         Longitude coordinate

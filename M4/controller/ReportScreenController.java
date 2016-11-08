@@ -60,7 +60,7 @@ public class ReportScreenController {
         double lon = Math.abs(selection.getY());
 
 
-        srcLocation.setText(new String(lat + " " + ns + " " + lon + " " + ew));
+        srcLocation.setText(lat + " " + ns + " " + lon + " " + ew);
         number.setText(Integer.toString(num));
         date.setText(day);
         srcName.setText(reportName);

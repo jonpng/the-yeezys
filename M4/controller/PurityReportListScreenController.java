@@ -27,15 +27,6 @@ public class PurityReportListScreenController {
     @FXML
     private Label noReports;
 
-    @FXML
-    private Button viewReport;
-
-    @FXML
-    private Button viewHistory;
-
-    @FXML
-    private Button addReport;
-
     /**
      * Sets the main application using this instance of ReportListScreenController
      * @param screen application using the controller.

@@ -26,18 +26,8 @@ public class LoginScreenController {
     @FXML
     private Label incorrect;
 
-    @FXML
-    private Label name;
-
-    @FXML
-    private Label email;
-
-    @FXML
-    private Label address;
-
     private User user;
 
-    private StringProperty nameProperty;
 
     /**
      * Sets app using this controller

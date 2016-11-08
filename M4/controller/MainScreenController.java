@@ -9,15 +9,11 @@ import model.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.beans.property.StringProperty;
-import javafx.beans.property.SimpleStringProperty;
 
 public class MainScreenController {
 
     private MainFXApplication screen;
     private User user;
-    private StringProperty nameProperty;
-    private StringProperty emailProperty;
-    private StringProperty addressProperty;
 
     @FXML
     private Label name;
