@@ -17,7 +17,7 @@ import javafx.fxml.FXMLLoader;
 
 public class Junit_Test {
 
-    User user1 = new User("Name1", "User1", "Pass1".hashCode(), "Worker");
+    User user1 = new User("Name1", "User1", "Pass1".hashCode(), "Worker", "user@email.com", "123 Address");
     User user2 = new User("Name2", "User2", "Pass2".hashCode(), "Worker");
 
     Report report1 = new Report(0, 0, "Test1", "Waste", "username", "N", "E", "Well");
@@ -32,14 +32,11 @@ public class Junit_Test {
     PurityReport pure2 = new PurityReport(52, 48, "Name2", "Good", "Reporter2", "S", "W", 0, 0, stamp2);
     String dateStr1 = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date1);
     String dateStr2 = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date2);
-<<<<<<< HEAD
     MainScreenController control = new MainScreenController();
     MainScreenController control2 = new MainScreenController();
-=======
     
-    private User taylor = new User("Taylor", "thavrilak3", 12345, "User");
-    private Report report = new Report(43.3763, -87.0294, "Lake Michigan", "Waste", taylor.getName(), "N", "W", "Lake");
->>>>>>> origin/master
+    User taylor1 = new User("Taylor", "thavrilak3", "Password".hashCode(), "User");
+    Report report = new Report(43.3763, -87.0294, "Lake Michigan", "Waste", taylor1.getName(), "N", "W", "Lake");
 
 
     @Before
@@ -54,14 +51,11 @@ public class Junit_Test {
         pure2 = new PurityReport(52, 48, "Name2", "Good", "Reporter2", "S", "W", 0.1, 0.1, stamp2);
         dateStr1 = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date1);
         dateStr2 = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date2);
-<<<<<<< HEAD
         control = new MainScreenController();
         control2 = new MainScreenController();
-=======
         
-        taylor = new User("Taylor", "thavrilak3", 12345, "User");
-        report = new Report(43.3763, -87.0294, "Lake Michigan", "Waste", taylor.getName(), "N", "W", "Lake");
->>>>>>> origin/master
+        taylor1 = new User("Taylor", "thavrilak3", "Password".hashCode(), "User");
+        report = new Report(43.3763, -87.0294, "Lake Michigan", "Waste", taylor1.getName(), "N", "W", "Lake");
     }
 
     @Test
@@ -127,7 +121,7 @@ public class Junit_Test {
         Assert.assertEquals(report.getY(), -87.0294, 0.001);
         Assert.assertEquals(report.getReportName(), "Lake Michigan");
         Assert.assertEquals(report.getCondition(), "Waste");
-        Assert.assertEquals(report.getReporter(), taylor.getName());
+        Assert.assertEquals(report.getReporter(), taylor1.getName());
         Assert.assertEquals(report.getNSDir(), "N");
         Assert.assertEquals(report.getEWDir(), "W");
         Assert.assertEquals(report.getType(), "Lake");
@@ -135,6 +129,8 @@ public class Junit_Test {
     
     @Test
     public void testUser3() {
-        assertTrue(taylor.verify(taylor.getUsername(), String.valueOf(taylor.getPassword()));   
+        assert(user1.verify("User1", "Pass1"));
+        assert(user2.verify("User2", "Pass2"));
+        assert(taylor1.verify("thavrilak3", "Password"));
     }
 }
