@@ -29,7 +29,7 @@ public class Junit_Test {
     String dateStr2 = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date2);
     
     private User taylor = new User("Taylor", "thavrilak3", 12345, "User");
-    private Report report = new Report(43.3763, -87.0294, "Lake Michigan", "Waste", taylor, "N", "W", "Lake");
+    private Report report = new Report(43.3763, -87.0294, "Lake Michigan", "Waste", taylor.getName(), "N", "W", "Lake");
 
 
     @Before
@@ -46,7 +46,7 @@ public class Junit_Test {
         dateStr2 = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date2);
         
         taylor = new User("Taylor", "thavrilak3", 12345, "User");
-        report = new Report(43.3763, -87.0294, "Lake Michigan", "Waste", taylor, "N", "W", "Lake");
+        report = new Report(43.3763, -87.0294, "Lake Michigan", "Waste", taylor.getName(), "N", "W", "Lake");
     }
 
     @Test
@@ -89,14 +89,14 @@ public class Junit_Test {
         Assert.assertEquals(report.getY(), -87.0294, 0.001);
         Assert.assertEquals(report.getReportName(), "Lake Michigan");
         Assert.assertEquals(report.getCondition(), "Waste");
-        Assert.assertEquals(report.getReporter(), taylor);
+        Assert.assertEquals(report.getReporter(), taylor.getName());
         Assert.assertEquals(report.getNSDir(), "N");
         Assert.assertEquals(report.getEWDir(), "W");
         Assert.assertEquals(report.getType(), "Lake");
     }
     
     @Test
-    public void testUser2() {
-        assert(taylor.verify("thavrilak3", 12345));   
+    public void testUser3() {
+        assertTrue(taylor.verify(taylor.getUsername(), String.valueOf(taylor.getPassword()));   
     }
 }
