@@ -121,6 +121,11 @@ public class ReportListScreenController {
     }
 
     @FXML
+    private void handleViewHistory() {
+        screen.init(13);
+    }
+
+    @FXML
     /**
      * Loads the map.
      */
