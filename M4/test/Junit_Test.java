@@ -94,5 +94,9 @@ public class Junit_Test {
         Assert.assertEquals(report.getEWDir(), "W");
         Assert.assertEquals(report.getType(), "Lake");
     }
-
+    
+    @Test
+    public void testUser2() {
+        assert(taylor.verify("thavrilak3", 12345));   
+    }
 }
