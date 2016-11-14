@@ -32,8 +32,14 @@ public class Junit_Test {
     PurityReport pure2 = new PurityReport(52, 48, "Name2", "Good", "Reporter2", "S", "W", 0, 0, stamp2);
     String dateStr1 = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date1);
     String dateStr2 = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date2);
+<<<<<<< HEAD
     MainScreenController control = new MainScreenController();
     MainScreenController control2 = new MainScreenController();
+=======
+    
+    private User taylor = new User("Taylor", "thavrilak3", 12345, "User");
+    private Report report = new Report(43.3763, -87.0294, "Lake Michigan", "Waste", taylor.getName(), "N", "W", "Lake");
+>>>>>>> origin/master
 
 
     @Before
@@ -48,8 +54,14 @@ public class Junit_Test {
         pure2 = new PurityReport(52, 48, "Name2", "Good", "Reporter2", "S", "W", 0.1, 0.1, stamp2);
         dateStr1 = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date1);
         dateStr2 = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date2);
+<<<<<<< HEAD
         control = new MainScreenController();
         control2 = new MainScreenController();
+=======
+        
+        taylor = new User("Taylor", "thavrilak3", 12345, "User");
+        report = new Report(43.3763, -87.0294, "Lake Michigan", "Waste", taylor.getName(), "N", "W", "Lake");
+>>>>>>> origin/master
     }
 
     @Test
@@ -108,5 +120,21 @@ public class Junit_Test {
         Assert.assertEquals(pure2.getContainmentPPM(), 0.1, 0.001);
         Assert.assertEquals(pure2.getDate(), dateStr2);
     }
-
+    
+    @Test
+    public void verifyReport() {
+        Assert.assertEquals(report.getX(), 43.3763, 0.001);
+        Assert.assertEquals(report.getY(), -87.0294, 0.001);
+        Assert.assertEquals(report.getReportName(), "Lake Michigan");
+        Assert.assertEquals(report.getCondition(), "Waste");
+        Assert.assertEquals(report.getReporter(), taylor.getName());
+        Assert.assertEquals(report.getNSDir(), "N");
+        Assert.assertEquals(report.getEWDir(), "W");
+        Assert.assertEquals(report.getType(), "Lake");
+    }
+    
+    @Test
+    public void testUser3() {
+        assertTrue(taylor.verify(taylor.getUsername(), String.valueOf(taylor.getPassword()));   
+    }
 }
