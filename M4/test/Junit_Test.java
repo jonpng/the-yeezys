@@ -57,14 +57,7 @@ public class Junit_Test {
         taylor1 = new User("Taylor", "thavrilak3", "Password".hashCode(), "User");
         report = new Report(43.3763, -87.0294, "Lake Michigan", "Waste", taylor1.getName(), "N", "W", "Lake");
     }
-
-    @Test
-    //Brandon
-    public void testUser() {
-        assert(user1.verify("User1", "Pass1"));
-        assert(user2.verify("User2", "Pass2"));
-    }
-
+    
     @Test
     //Brandon
     public void testLoadProfile() {
