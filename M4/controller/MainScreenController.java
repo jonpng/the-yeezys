@@ -27,6 +27,11 @@ public class MainScreenController {
     @FXML
     private Label type;
 
+    private String nameString;
+    private String emailString;
+    private String addressString;
+    private String typeString;
+
     @FXML
     /**
      * Action taken when Logout is pressed
@@ -78,6 +83,22 @@ public class MainScreenController {
     }
 
     /**
+     * Simulates loadProfile for testing purposes
+     */
+    public void load() {
+        nameString = user.getName();
+        emailString = user.getEmail();
+        if (user.getEmail() == null) {
+            emailString = "N/A";
+        }
+        addressString = user.getAddress();
+        if (user.getAddress() == null) {
+            addressString = "N/A";
+        }
+        typeString = user.getAccountType();
+    }
+
+    /**
      * Gets the user logged into the system
      * @return user logged into the system
      */
@@ -107,5 +128,37 @@ public class MainScreenController {
      */
     private void handleView() {
         screen.init(4);
+    }
+
+    /**
+     * Returns the name Label
+     * @return name Label
+     */
+    public String getName() {
+        return nameString;
+    }
+
+    /**
+     * Returns the email Label
+     * @return email label
+     */
+    public String getEmail() {
+        return emailString;
+    }
+
+    /**
+     * Returns the address label
+     * @return the address label
+     */
+    public String getAddress() {
+        return addressString;
+    }
+
+    /**
+     * Returns the type label
+     * @return the type Label
+     */
+    public String getType() {
+        return typeString;
     }
 }

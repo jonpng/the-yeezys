@@ -6,11 +6,14 @@ package test;
 import model.Report;
 import model.User;
 import model.PurityReport;
+import controller.MainScreenController;
 import java.text.SimpleDateFormat;
+import java.sql.Timestamp;
 import java.util.Date;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import javafx.fxml.FXMLLoader;
 
 public class Junit_Test {
 
@@ -23,33 +26,61 @@ public class Junit_Test {
     Date date1 = new Date();
     long i = 1479135572;
     Date date2 = new Date(i);
-    PurityReport pure1 = new PurityReport(0, 0, "Name1", "Fair", "Reporter1", "N", "E", 10, 20, date1);
-    PurityReport pure2 = new PurityReport(52, 48, "Name2", "Good", "Reporter2", "S", "W", 0, 0, date2);
+    Timestamp stamp1 = new Timestamp(date1.getTime());
+    Timestamp stamp2 = new Timestamp(date2.getTime());
+    PurityReport pure1 = new PurityReport(0, 0, "Name1", "Fair", "Reporter1", "N", "E", 10, 20, stamp1);
+    PurityReport pure2 = new PurityReport(52, 48, "Name2", "Good", "Reporter2", "S", "W", 0, 0, stamp2);
     String dateStr1 = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date1);
     String dateStr2 = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date2);
+    MainScreenController control = new MainScreenController();
+    MainScreenController control2 = new MainScreenController();
 
 
     @Before
     public void setUp() {
-        user1 =new User("Name1", "User1", "Pass1".hashCode(), "Worker");
+        user1 =new User("Name1", "User1", "Pass1".hashCode(), "Worker", "user@email.com", "123 Address");
         user2 = new User("Name2", "User2", "Pass2".hashCode(), "Worker");
 
         report1 = new Report(0, 0, "Test1", "Waste", "username", "N", "E", "Well");
         report2 = new Report(38, 24, "Test2", "Potable", "manager", "S", "E", "Lake");
 
-        pure1 = new PurityReport(0, 0, "Name1", "Fair", "Reporter1", "N", "E", 10.0, 20.0, date1);
-        pure2 = new PurityReport(52, 48, "Name2", "Good", "Reporter2", "S", "W", 0.1, 0.1, date2);
+        pure1 = new PurityReport(0, 0, "Name1", "Fair", "Reporter1", "N", "E", 10.0, 20.0, stamp1);
+        pure2 = new PurityReport(52, 48, "Name2", "Good", "Reporter2", "S", "W", 0.1, 0.1, stamp2);
         dateStr1 = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date1);
         dateStr2 = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date2);
+        control = new MainScreenController();
+        control2 = new MainScreenController();
     }
 
     @Test
+    //Brandon
     public void testUser() {
         assert(user1.verify("User1", "Pass1"));
         assert(user2.verify("User2", "Pass2"));
     }
 
     @Test
+    //Brandon
+    public void testLoadProfile() {
+
+        control.loadUser(user1);
+
+        control.load();
+        Assert.assertEquals(control.getName(), "Name1");
+        Assert.assertEquals(control.getEmail(), "user@email.com");
+        Assert.assertEquals(control.getAddress(), "123 Address");
+        Assert.assertEquals(control.getType(), "Worker");
+
+        control2.loadUser(user2);
+        control2.load();
+        Assert.assertEquals("Name2", control2.getName());
+        Assert.assertEquals("", control2.getEmail());
+        Assert.assertEquals("", control2.getAddress());
+        Assert.assertEquals("Worker", control2.getType());
+    }
+
+    @Test
+    //Jonathon
     public void testReport() {
         Assert.assertEquals(report1.getX(), 0, 0.001);
         Assert.assertEquals(report1.getY(), 0, 0.001);
@@ -67,6 +98,7 @@ public class Junit_Test {
     }
 
     @Test
+    //Jonathon
     public void testPurity() {
         Assert.assertEquals(pure1.getVirusPPM(), 10, 0.001);
         Assert.assertEquals(pure1.getContainmentPPM(), 20, 0.001);
