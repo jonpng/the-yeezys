@@ -13,12 +13,13 @@ import java.util.Date;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import javafx.fxml.FXMLLoader;
 
 public class Junit_Test {
 
     User user1 = new User("Name1", "User1", "Pass1".hashCode(), "Worker", "user@email.com", "123 Address");
     User user2 = new User("Name2", "User2", "Pass2".hashCode(), "Worker");
+
+    User joe = new User("Joe", "JSteff1021", 101234, "User");
 
     Report report1 = new Report(0, 0, "Test1", "Waste", "username", "N", "E", "Well");
     Report report2 = new Report(38, 24, "Test2", "Potable", "manager", "S", "E", "Lake");
@@ -43,6 +44,7 @@ public class Junit_Test {
     public void setUp() {
         user1 =new User("Name1", "User1", "Pass1".hashCode(), "Worker", "user@email.com", "123 Address");
         user2 = new User("Name2", "User2", "Pass2".hashCode(), "Worker");
+        joe = new User("Joe", "JSteff1021", 101234, "User");
 
         report1 = new Report(0, 0, "Test1", "Waste", "username", "N", "E", "Well");
         report2 = new Report(38, 24, "Test2", "Potable", "manager", "S", "E", "Lake");
@@ -119,8 +121,21 @@ public class Junit_Test {
         Assert.assertEquals(report.getEWDir(), "W");
         Assert.assertEquals(report.getType(), "Lake");
     }
-    
+
     @Test
+    //Joey
+    public void testUser2() {
+
+        Assert.assertEquals(joe.getName(), "Joe");
+        Assert.assertEquals(joe.getUsername(), "JSteff1021");
+        Assert.assertEquals(joe.getPassword(), 101234);
+        Assert.assertEquals(joe.getAccountType(), "User");
+
+        Assert.assertFalse(joe.verify(joe.getUsername(), String.valueOf(joe.getPassword())));
+    }
+
+    @Test
+    //Taylor
     public void testUser3() {
         assert(user1.verify("User1", "Pass1"));
         assert(user2.verify("User2", "Pass2"));
