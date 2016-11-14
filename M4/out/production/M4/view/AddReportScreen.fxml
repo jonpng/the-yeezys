@@ -28,14 +28,14 @@
          <children>
             <Label text="Source Name" />
             <TextField fx:id="srcName" GridPane.columnIndex="1" />
-            <TextField fx:id="latCoor" prefHeight="26.0" prefWidth="26.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
+            <TextField fx:id="latCoord" prefHeight="26.0" prefWidth="26.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
                <GridPane.margin>
                   <Insets right="40.0" />
                </GridPane.margin>
             </TextField>
             <Label text="Latitude Coordinate" GridPane.rowIndex="1" />
             <Label text="Longitude Coordinate" GridPane.rowIndex="2" />
-            <TextField fx:id="longCoor" prefHeight="26.0" prefWidth="48.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+            <TextField fx:id="longCoord" prefHeight="26.0" prefWidth="48.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets right="40.0" />
                </GridPane.margin>
@@ -85,6 +85,6 @@
       <Button fx:id="submit" defaultButton="true" layoutX="57.0" layoutY="321.0" mnemonicParsing="false" onAction="#handleAdd" text="Submit Report" />
       <Button fx:id="cancel" layoutX="285.0" layoutY="321.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
       <Label fx:id="errorMsg" layoutX="119.0" layoutY="283.0" text="Please fill in all required fields" visible="false" />
-      <Label fx:id="coorErr" layoutX="148.0" layoutY="267.0" text="Invalid Coordinates" visible="false" />
+      <Label fx:id="coordErr" layoutX="148.0" layoutY="267.0" text="Invalid Coordinates" visible="false" />
    </children>
 </Pane>
