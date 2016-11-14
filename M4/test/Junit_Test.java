@@ -27,6 +27,9 @@ public class Junit_Test {
     PurityReport pure2 = new PurityReport(52, 48, "Name2", "Good", "Reporter2", "S", "W", 0, 0, date2);
     String dateStr1 = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date1);
     String dateStr2 = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date2);
+    
+    private User taylor = new User("Taylor", "thavrilak3", 12345, "User");
+    private Report report = new Report(43.3763, -87.0294, "Lake Michigan", "Waste", taylor, "N", "W", "Lake");
 
 
     @Before
@@ -41,6 +44,9 @@ public class Junit_Test {
         pure2 = new PurityReport(52, 48, "Name2", "Good", "Reporter2", "S", "W", 0.1, 0.1, date2);
         dateStr1 = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date1);
         dateStr2 = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date2);
+        
+        taylor = new User("Taylor", "thavrilak3", 12345, "User");
+        report = new Report(43.3763, -87.0294, "Lake Michigan", "Waste", taylor, "N", "W", "Lake");
     }
 
     @Test
@@ -75,6 +81,18 @@ public class Junit_Test {
         Assert.assertEquals(pure2.getVirusPPM(), 0.1, 0.001);
         Assert.assertEquals(pure2.getContainmentPPM(), 0.1, 0.001);
         Assert.assertEquals(pure2.getDate(), dateStr2);
+    }
+    
+    @Test
+    public void verifyReport() {
+        Assert.assertEquals(report.getX(), 38.3545, 0.001);
+        Assert.assertEquals(report.getY(), 57.5912, 0.001);
+        Assert.assertEquals(report.getReportName(), "Lake Michigan");
+        Assert.assertEquals(report.getCondition(), "Waste");
+        Assert.assertEquals(report.getReporter(), taylor);
+        Assert.assertEquals(report.getNSDir(), "N");
+        Assert.assertEquals(report.getEWDir(), "W");
+        Assert.assertEquals(report.getType(), "Lake");
     }
 
 }
