@@ -85,8 +85,8 @@ public class Junit_Test {
     
     @Test
     public void verifyReport() {
-        Assert.assertEquals(report.getX(), 38.3545, 0.001);
-        Assert.assertEquals(report.getY(), 57.5912, 0.001);
+        Assert.assertEquals(report.getX(), 43.3763, 0.001);
+        Assert.assertEquals(report.getY(), -87.0294, 0.001);
         Assert.assertEquals(report.getReportName(), "Lake Michigan");
         Assert.assertEquals(report.getCondition(), "Waste");
         Assert.assertEquals(report.getReporter(), taylor);
