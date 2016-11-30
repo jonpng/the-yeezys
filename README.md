@@ -1,5 +1,5 @@
 # the-yeezys
-INSTALL USING final.dmg
+INSTALL USING final.dmg  
 Sorry no EXE Windows Users, you can run the jar though.
 
 ---
