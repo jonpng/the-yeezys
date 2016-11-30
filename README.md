@@ -3,7 +3,7 @@ INSTALL USING final.dmg
 Sorry no EXE Windows Users, you can run final.jar though.  
 The jar is located in:
 ```
-final/build/libs/final.jar
+/final/build/libs/final.jar
 ```
 Download the repo and run it. (Yeah, it works better on a mac. Oh well.)
 
@@ -17,7 +17,7 @@ gradle assemble
 
 The final app is going to be located in:
 ```
-final/build/distributions/bundles/final.app
+/final/build/distributions/bundles/final.app
 ```
 
 ---
