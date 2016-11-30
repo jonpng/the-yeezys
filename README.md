@@ -1,6 +1,8 @@
 # the-yeezys
-INSTALL USING DMG(mac users)
+INSTALL USING final.dmg
+Sorry no EXE Windows Users, you can run the jar though.
 
+---
 
 Hi. final is the folder structure for the application, M4 is the folder structure for our coding.
 To build the app, navigate to /final in the terminal and run:
@@ -21,7 +23,7 @@ username: testuser
 password: password
 
 
-
+---
 
 
 
