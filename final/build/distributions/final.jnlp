@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="final.jnlp">
+  <information>
+    <title>final</title>
+    <vendor>Unknown</vendor>
+    <description>final</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="final.jar" size="1135682" download="null" />
+    <jar href="GMapsFX-2.0.9.jar" size="166541" download="null" />
+    <jar href="mysql-connector-java-5.1.39.jar" size="989495" download="null" />
+  </resources>
+<security>
+  <all-permissions/>
+</security>
+  <jfx:javafx-desc  width="1024" height="768" main-class="app.fxapp.MainFXApplication"  name="final" />
+  <update check="background"/>
+</jnlp>

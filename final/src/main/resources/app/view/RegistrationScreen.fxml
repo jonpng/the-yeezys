@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import java.lang.String?>
+<Pane fx:id="registration" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.RegistrationScreenController">
+   <children>
+      <VBox alignment="CENTER" layoutX="100.0" layoutY="3.0" prefHeight="200.0" prefWidth="300.0" spacing="30.0">
+         <children>
+            <Label text="Registration">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nameReg" promptText="Name" />
+            <TextField fx:id="userReg" promptText="Username" />
+            <TextField fx:id="passReg" promptText="Password" />
+            <ComboBox fx:id="acctType" prefWidth="150.0" promptText="Account Type" visibleRowCount="5">
+                    <items>
+                           <FXCollections fx:factory="observableArrayList">
+                                 <String fx:id="user" fx:value="User"/>
+                                 <String fx:id="worker" fx:value="Worker"/>
+                                 <String fx:id="manager" fx:value="Manager"/>
+                                 <String fx:id="admin" fx:value="Admin"/>
+                           </FXCollections>
+                    </items>
+            </ComboBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+               <children>
+                  <Button fx:id="subReg" mnemonicParsing="false" text="Submit" onAction="#handleRegister" defaultButton="true"/>
+                  <Button fx:id="cancelReg" mnemonicParsing="false" text="Cancel" onAction="#handleCancel" />
+               </children>
+            </HBox>
+            <Label fx:id="regError" text="Username Unavailable" visible="false">
+               <VBox.margin>
+                  <Insets top="-20.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</Pane>
