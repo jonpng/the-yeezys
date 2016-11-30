@@ -19,7 +19,7 @@ We already have a dmg for installation in the top level of this repo.
 
 This doesn't work in windows btw, as of now. Probably never after this semester.
 
-username: testuser
+username: testuser  
 password: password
 
 
