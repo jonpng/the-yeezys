@@ -1,6 +1,11 @@
 # the-yeezys
 INSTALL USING final.dmg  
-Sorry no EXE Windows Users, you can run final.jar though.
+Sorry no EXE Windows Users, you can run final.jar though.  
+The jar is located in:
+```
+build/libs/final.jar
+```
+Download the repo and run it. (Yeah, it works better on a mac. Oh well.)
 
 ---
 
@@ -15,6 +20,7 @@ The final app is going to be located in:
 build/distributions/bundles/final.app
 ```
 
+---
 We already have a dmg for installation in the top level of this repo.
 
 This doesn't work in windows btw, as of now. Probably never after this semester.
