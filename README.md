@@ -1,4 +1,7 @@
 # the-yeezys
+INSTALL USING DMG(mac users)
+
+
 Hi. final is the folder structure for the application, M4 is the folder structure for our coding.
 To build the app, navigate to /final in the terminal and run:
 ```
